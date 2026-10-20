@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  # MySQL 8.0 Database
+  db:
+    image: mysql:8.0
+    container_name: legal_cms_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: legal_cms_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Spring Boot Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legal_cms_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8080
+      DB_URL: jdbc:mysql://db:3306/legal_cms_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      JWT_SECRET: LegalCmsGovGujaratSecretKey2026SecureJwtAuthenticationSignatureString384BitAtLeast
+      APP_SEED_ENABLED: "true"
+    ports:
+      - "8080:8080"
+    volumes:
+      - upload_data:/app/uploads/bills
+
+  # React Frontend (Nginx)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: legal_cms_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  mysql_data:
+  upload_data:

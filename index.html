@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Official Portal of the Legal Department, Government of Gujarat. Providing citizen services, acts and rules, cause lists, legal aid, advocate fee voucher submission, and litigation management.">
+  <meta name="keywords" content="Legal Department, Government of Gujarat, Gujarat High Court, Acts and Rules, Litigation, Advocate Portal, GIGW">
+  <title>Legal Department | Government of Gujarat | Official Portal</title>
+
+  <!-- Google Fonts: Noto Serif for Headings & Noto Sans for Body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="home">
+
+  <!-- 1. Tricolour Strip (5px) at the very top -->
+  <div class="tricolour-strip" aria-hidden="true"></div>
+
+  <!-- 2. Utility Bar -->
+  <aside class="utility-bar" aria-label="Accessibility and Language Bar">
+    <div class="container utility-content">
+      <div class="utility-left">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <span class="utility-sep" aria-hidden="true">|</span>
+        <a href="#screen-reader-info" class="utility-link" id="screen-reader-link">Screen Reader Access</a>
+      </div>
+      <div class="utility-right">
+        <!-- Text Resizer -->
+        <div class="font-resizer" role="group" aria-label="Text size controls">
+          <button type="button" id="btn-decrease-font" class="font-btn" aria-label="Decrease font size">A-</button>
+          <button type="button" id="btn-reset-font" class="font-btn" aria-label="Default font size">A</button>
+          <button type="button" id="btn-increase-font" class="font-btn" aria-label="Increase font size">A+</button>
+        </div>
+        <span class="utility-sep" aria-hidden="true">|</span>
+        <!-- Theme Toggle -->
+        <button type="button" id="theme-toggle-btn" class="utility-btn" aria-label="Toggle contrast mode">
+          <span class="theme-icon" aria-hidden="true">🌓</span> <span id="theme-label">High Contrast</span>
+        </button>
+        <span class="utility-sep" aria-hidden="true">|</span>
+        <!-- Language Switcher -->
+        <nav class="lang-nav" aria-label="Language selection">
+          <ul class="lang-list">
+            <li><button type="button" class="lang-btn active" data-lang="en">English</button></li>
+            <li><button type="button" class="lang-btn" data-lang="gu" lang="gu">ગુજરાતી</button></li>
+            <li><button type="button" class="lang-btn" data-lang="hi" lang="hi">हिन्दी</button></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 3. Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-container">
+      <div class="header-brand">
+        <!-- State Emblem Placeholder Slot -->
+        <!-- IDEAL REAL PHOTO: Official State Emblem of India (Lion Capital of Ashoka) with Satyameva Jayate.
+             LEGAL SOURCE: Wikimedia Commons (Public Domain / Government of India open data policy)
+             URL: https://commons.wikimedia.org/wiki/File:Emblem_of_India.svg -->
+        <div class="emblem-slot" aria-label="State Emblem of India">
+          <svg class="emblem-svg" viewBox="0 0 100 100" role="img" aria-label="National Emblem of India Placeholder">
+            <circle cx="50" cy="50" r="46" fill="#f4f6f9" stroke="#12365f" stroke-width="2"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="#d9731a" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="50" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#12365f" font-family="'Noto Serif', serif">સત્યમેવ</text>
+            <text x="50" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#12365f" font-family="'Noto Serif', serif">જયતે</text>
+            <text x="50" y="74" text-anchor="middle" font-size="8" font-weight="600" fill="#1f7a3f" font-family="'Noto Sans', sans-serif">GUJARAT</text>
+          </svg>
+        </div>
+
+        <div class="brand-text">
+          <span class="gov-line" lang="gu">ગુજરાત સરકાર | Government of Gujarat</span>
+          <h1 class="dept-title">Legal Department</h1>
+          <span class="sub-dept">કાયદા વિભાગ | Sachivalaya, Gandhinagar</span>
+        </div>
+      </div>
+
+      <!-- Header Actions: Search, Login / Register, LCMS Console -->
+      <div class="header-actions">
+        <!-- Live Search Box -->
+        <form class="search-form" role="search" id="site-search-form" action="javascript:void(0);">
+          <label for="header-search-input" class="sr-only">Search department portal</label>
+          <input type="search" id="header-search-input" name="q" placeholder="Search Acts, Rules, Orders..." autocomplete="off" required>
+          <button type="submit" class="search-submit" aria-label="Submit search">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+          <div class="search-results-overlay" id="search-results-overlay" role="listbox" aria-label="Search suggestions"></div>
+        </form>
+
+        <!-- Logged-in User Status Chip -->
+        <div class="user-logged-chip" id="user-logged-chip">
+          <span>👤 <strong id="chip-user-name">Adv. Meera Shah</strong></span>
+          <span class="user-role-badge" id="chip-user-role">ADVOCATE</span>
+          <button type="button" class="btn-logout-chip" id="btn-logout" aria-label="Sign Out">Sign Out</button>
+        </div>
+
+        <!-- Prominent Login / Register Button -->
+        <button type="button" class="btn-auth-header" id="btn-open-auth-header" aria-label="Sign In or Register">
+          <span>🔐</span> Login / Register
+        </button>
+
+        <!-- Dedicated Case Management Portal Link -->
+        <button type="button" class="btn-cms-portal btn-trigger-lcms" aria-label="Launch Legal Case Management Console">
+          <span class="badge-icon">⚖️</span> Case Management (LCMS)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Sticky Main Navigation with Working Dropdowns & Auth Button -->
+  <nav class="main-nav" id="main-navigation" role="navigation" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="nav-menu-list" aria-label="Toggle navigation menu">
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-inner"></span>
+        </span>
+        <span class="menu-toggle-text">Menu</span>
+      </button>
+
+      <ul class="nav-list" id="nav-menu-list">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active">Home</a>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            About Us <span class="arrow" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#about-vision" class="nav-action-link">Vision &amp; Mandates</a></li>
+            <li><a href="#about-org" class="nav-action-link">Organizational Chart</a></li>
+            <li><a href="#key-officials" class="nav-action-link">Key Officials Roster</a></li>
+            <li><a href="#citizen-charter" class="nav-action-link">Citizen's Charter (SLAs)</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Acts &amp; Rules <span class="arrow" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="nav-filter-act" data-filter="State Act">State Acts &amp; Amendments</button></li>
+            <li><button type="button" class="nav-filter-act" data-filter="Rules">Statutory Rules &amp; Regulations</button></li>
+            <li><button type="button" class="nav-filter-act" data-filter="Legislation">Subordinate Legislation</button></li>
+            <li><button type="button" class="nav-open-doc" data-doc="act-1">Gujarat Civil Courts Act, 2005</button></li>
+            <li><button type="button" class="nav-open-doc" data-doc="act-5">Law Officers Service Rules</button></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Notifications <span class="arrow" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="nav-switch-tab" data-tab="tab-whatsnew">What's New Gazette</button></li>
+            <li><button type="button" class="nav-switch-tab" data-tab="tab-circulars">Departmental Circulars</button></li>
+            <li><button type="button" class="nav-switch-tab" data-tab="tab-tenders">e-Tenders &amp; RFPs</button></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <button type="button" class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Services <span class="arrow" aria-hidden="true">▾</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><button type="button" class="btn-trigger-lcms">Litigation Tracking (LCMS)</button></li>
+            <li><button type="button" class="btn-trigger-lcms" data-tab="lcms-panel-claim">Advocate Fee Voucher Submission</button></li>
+            <li><button type="button" id="nav-btn-notary">Notary Public Directory</button></li>
+            <li><button type="button" id="nav-btn-aid">Free Legal Aid (GSLSA)</button></li>
+            <li><button type="button" class="btn-trigger-lcms" data-tab="lcms-panel-attendance">Advocate Attendance Desk</button></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#gallery-sec" class="nav-link nav-action-link">Gallery</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#rti-sec" class="nav-link nav-action-link">RTI</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#contact-sec" class="nav-link nav-action-link">Contact</a>
+        </li>
+
+        <!-- Navigation Login / Register Button -->
+        <li class="nav-item nav-item-auth">
+          <button type="button" class="nav-btn-action" id="btn-open-auth-nav">
+            <span>🔐</span> Sign In / Register
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 6. Notice Bar with "New" Tag -->
+  <aside class="notice-bar" aria-label="Important Department Notices">
+    <div class="container notice-container">
+      <div class="notice-badge">
+        <span class="badge-label">NOTICE</span>
+        <span class="badge-new" aria-label="New item">NEW</span>
+      </div>
+      <div class="notice-ticker" id="notice-ticker" role="region" aria-live="polite">
+        <p class="ticker-text" id="ticker-item" data-doc-id="doc-1">
+          [Sample] Circular No. LGD/2026/44/B: Revised guidelines for expeditious submission of government advocate fee bills on LCMS portal.
+        </p>
+      </div>
+      <div class="ticker-controls">
+        <button type="button" id="ticker-toggle-btn" class="ticker-btn" aria-label="Pause ticker animation">⏸</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Anchor -->
+  <main id="main-content">
+
+    <!-- 5. Hero Image Slider with 3 Slides -->
+    <section class="hero-section" aria-label="Featured Highlights Carousel">
+      <div class="hero-slider" id="hero-slider" role="region" aria-roledescription="carousel" aria-label="Gujarat Legal Department Highlights">
+        
+        <!-- Slide 1: High Court of Gujarat -->
+        <article class="hero-slide active" role="group" aria-roledescription="slide" aria-label="Slide 1 of 3: Gujarat High Court Complex">
+          <figure class="slide-figure">
+            <svg class="placeholder-img hero-img" viewBox="0 0 1050 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Front facade of Gujarat High Court building at Sola Ahmedabad">
+              <defs>
+                <linearGradient id="hcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0f2b4c"/>
+                  <stop offset="50%" stop-color="#184373"/>
+                  <stop offset="100%" stop-color="#0c2038"/>
+                </linearGradient>
+                <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="1050" height="400" fill="url(#hcGrad)"/>
+              <rect width="1050" height="400" fill="url(#gridPattern)"/>
+              <polygon points="50,340 50,220 200,220 200,160 525,110 850,160 850,220 1000,220 1000,340" fill="#0d243e" opacity="0.6"/>
+              <circle cx="525" cy="180" r="45" fill="none" stroke="#d9731a" stroke-width="3" opacity="0.4"/>
+              <text x="525" y="270" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="28" font-weight="700">HIGH COURT OF GUJARAT</text>
+              <text x="525" y="300" text-anchor="middle" fill="#e2e8f0" font-family="'Noto Sans', sans-serif" font-size="14">Sola, Ahmedabad - Apex Judicial Seat of the State</text>
+            </svg>
+            <figcaption class="slide-caption">
+              <span class="caption-tag">Apex Judiciary</span>
+              <h2 class="caption-title">Strengthening Justice Delivery &amp; Constitutional Governance</h2>
+              <p class="caption-desc">Ensuring effective representation of state matters and timely dispensation of constitutional justice in Gujarat.</p>
+              <span class="caption-credit">[Sample Photo Slot: Gujarat High Court Complex | Source: High Court of Gujarat Official Registry]</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <!-- Slide 2: Lok Adalat / Legal Aid Session -->
+        <article class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 3: Mega Lok Adalat">
+          <figure class="slide-figure">
+            <svg class="placeholder-img hero-img" viewBox="0 0 1050 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="National Lok Adalat bench resolving disputes amicably">
+              <defs>
+                <linearGradient id="lokGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#143e26"/>
+                  <stop offset="60%" stop-color="#1f5d3a"/>
+                  <stop offset="100%" stop-color="#102e1c"/>
+                </linearGradient>
+              </defs>
+              <rect width="1050" height="400" fill="url(#lokGrad)"/>
+              <circle cx="525" cy="170" r="60" fill="none" stroke="#f4f6f9" stroke-width="2" opacity="0.3"/>
+              <text x="525" y="260" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="28" font-weight="700">NATIONAL LOK ADALAT &amp; MEDIATION</text>
+              <text x="525" y="295" text-anchor="middle" fill="#e2e8f0" font-family="'Noto Sans', sans-serif" font-size="14">Gujarat State Legal Services Authority (GSLSA)</text>
+            </svg>
+            <figcaption class="slide-caption">
+              <span class="caption-tag">Legal Aid &amp; Alternate Dispute Resolution</span>
+              <h2 class="caption-title">Accessible, Amicable, &amp; Speedy Dispute Redressal</h2>
+              <p class="caption-desc">Over 1,20,000 cases resolved through consensus and conciliation benches across 33 district jurisdictions.</p>
+              <span class="caption-credit">[Sample Photo Slot: Lok Adalat Bench Proceedings | Source: GSLSA / State Legal Aid Cell]</span>
+            </figcaption>
+          </figure>
+        </article>
+
+        <!-- Slide 3: Gujarat Legislative Assembly -->
+        <article class="hero-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 3: Gujarat Legislative Assembly">
+          <figure class="slide-figure">
+            <svg class="placeholder-img hero-img" viewBox="0 0 1050 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Gujarat Legislative Assembly Building Vithalbhai Patel Bhavan Gandhinagar">
+              <defs>
+                <linearGradient id="vsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#362208"/>
+                  <stop offset="60%" stop-color="#5a380e"/>
+                  <stop offset="100%" stop-color="#241604"/>
+                </linearGradient>
+              </defs>
+              <rect width="1050" height="400" fill="url(#vsGrad)"/>
+              <text x="525" y="260" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="28" font-weight="700">GUJARAT VIDHAN SABHA</text>
+              <text x="525" y="295" text-anchor="middle" fill="#e2e8f0" font-family="'Noto Sans', sans-serif" font-size="14">Vithalbhai Patel Bhavan, Capital Complex, Gandhinagar</text>
+            </svg>
+            <figcaption class="slide-caption">
+              <span class="caption-tag">Legislative Drafting</span>
+              <h2 class="caption-title">Framing Progressive Legislation for 6.5 Crore Citizens</h2>
+              <p class="caption-desc">Scrutiny of government bills, statutory ordinances, subordinate rules, and legal notifications.</p>
+              <span class="caption-credit">[Sample Photo Slot: Gujarat Legislative Assembly | Source: Information Department, GoG]</span>
+            </figcaption>
+          </figure>
+        </article>
+
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="slider-controls">
+        <button type="button" class="slider-btn prev-btn" id="slider-prev" aria-label="Previous slide">‹</button>
+        <button type="button" class="slider-btn pause-btn" id="slider-pause" aria-label="Pause automatic slide rotation">⏸</button>
+        <button type="button" class="slider-btn next-btn" id="slider-next" aria-label="Next slide">›</button>
+      </div>
+
+      <!-- Indicators -->
+      <div class="slider-indicators" id="slider-indicators" role="tablist" aria-label="Slider Indicators">
+        <button type="button" class="indicator active" role="tab" aria-selected="true" aria-label="Go to Slide 1" data-slide="0"></button>
+        <button type="button" class="indicator" role="tab" aria-selected="false" aria-label="Go to Slide 2" data-slide="1"></button>
+        <button type="button" class="indicator" role="tab" aria-selected="false" aria-label="Go to Slide 3" data-slide="2"></button>
+      </div>
+    </section>
+
+    <!-- 7. Quick Services: 4 Cards with Coloured Top Border -->
+    <section class="section quick-services-sec" id="services-sec" aria-labelledby="quick-services-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Citizen &amp; Official Portals</span>
+          <h2 class="section-title" id="quick-services-heading">Quick Department Services</h2>
+          <p class="section-lead">Access single-window portals for legal aid, litigation records, notarial filings, and government bill scrutiny.</p>
+        </header>
+
+        <div class="card-grid col-4">
+          <!-- Card 1: LCMS Portal -->
+          <article class="service-card border-navy">
+            <div class="card-icon-wrap" aria-hidden="true">
+              <span class="service-icon">⚖️</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Case Management (LCMS)</h3>
+              <p class="card-desc">Comprehensive system for tracking government litigation, hearing schedules, advocate attendance, and budget allocation.</p>
+              <span class="card-status-pill sample-pill">Active Portal</span>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="card-btn btn-trigger-lcms">Launch LCMS Console &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Card 2: Advocate Fee Voucher Portal -->
+          <article class="service-card border-saffron">
+            <div class="card-icon-wrap" aria-hidden="true">
+              <span class="service-icon">📑</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Advocate Fee Claims</h3>
+              <p class="card-desc">Paperless submission of professional fees, clerkage, and expense vouchers with automated fee scale validation.</p>
+              <span class="card-status-pill sample-pill">G.R. Scale 2026</span>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="card-btn btn-trigger-lcms" data-tab="lcms-panel-claim">Submit Fee Voucher &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Card 3: Free Legal Aid (GSLSA) -->
+          <article class="service-card border-green">
+            <div class="card-icon-wrap" aria-hidden="true">
+              <span class="service-icon">🤝</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Free Legal Aid Services</h3>
+              <p class="card-desc">Legal assistance to marginalized persons, women, children, and industrial workers under the Legal Services Authorities Act.</p>
+              <span class="card-status-pill sample-pill">Toll Free: 15100</span>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="card-btn" id="btn-open-legal-aid">Apply for Counsel &rarr;</button>
+            </div>
+          </article>
+
+          <!-- Card 4: Notary Public Certification -->
+          <article class="service-card border-teal">
+            <div class="card-icon-wrap" aria-hidden="true">
+              <span class="service-icon">📜</span>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Notary Directory &amp; Renewal</h3>
+              <p class="card-desc">State-wide register of appointed Notaries Public, annual practice verification, and renewal application processing.</p>
+              <span class="card-status-pill sample-pill">3,450+ Notaries</span>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="card-btn" id="btn-open-notary">Search Directory &rarr;</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Tabbed Panel (What's New / Circulars / Tenders) & Secretary's Message -->
+    <section class="section tabs-secretary-sec" id="desk-updates-heading" aria-labelledby="desk-title-sr">
+      <div class="container">
+        <h2 id="desk-title-sr" class="sr-only">Department Updates and Executive Message</h2>
+
+        <div class="split-layout">
+          <!-- Left: Tabbed Updates Panel -->
+          <div class="tabbed-panel-wrapper">
+            <div class="tabs-header" role="tablist" aria-label="Department Bulletins">
+              <button type="button" class="tab-btn active" role="tab" id="tab-whatsnew" aria-selected="true" aria-controls="panel-whatsnew">What's New</button>
+              <button type="button" class="tab-btn" role="tab" id="tab-circulars" aria-selected="false" aria-controls="panel-circulars">Circulars</button>
+              <button type="button" class="tab-btn" role="tab" id="tab-tenders" aria-selected="false" aria-controls="panel-tenders">Tenders</button>
+            </div>
+
+            <!-- Tab 1: What's New -->
+            <div class="tab-panel active" id="panel-whatsnew" role="tabpanel" aria-labelledby="tab-whatsnew">
+              <ul class="bulletin-list">
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-10-12">12 Oct 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-1">Implementation of digital attendance registry for government panel advocates across all 33 District Courts.</button>
+                  <span class="tag-new" aria-label="New update">NEW</span>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-10-08">08 Oct 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-2">Schedule for National Lok Adalat to be held on 14th November 2026 across Gujarat judicial divisions.</button>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-09-29">29 Sep 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-1">Notification regarding revision of monetary jurisdiction of Senior Civil Judges in the State of Gujarat.</button>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-09-15">15 Sep 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-2">Selection list of advocates appointed as Special Public Prosecutors for Protection of Human Rights Courts.</button>
+                </li>
+              </ul>
+              <div class="panel-more">
+                <button type="button" class="btn-text" onclick="openDocumentViewer('doc-1');">View All Gazetted Circulars &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Tab 2: Circulars -->
+            <div class="tab-panel" id="panel-circulars" role="tabpanel" aria-labelledby="tab-circulars" hidden>
+              <ul class="bulletin-list">
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-10-01">01 Oct 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-1">Circular No. LGD/ACC/2026/18: Submission of quarterly expenditure reports under Head 2014 - Administration of Justice.</button>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-09-18">18 Sep 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-2">Guidelines for safe custody and weeding out of 30+ year old civil court records in Taluka registries.</button>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-08-25">25 Aug 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="doc-1">Standard operating procedure for handling summons and notices issued to State Government Principal Secretaries.</button>
+                </li>
+              </ul>
+              <div class="panel-more">
+                <button type="button" class="btn-text" onclick="openDocumentViewer('doc-1');">View Archival Circulars &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Tab 3: Tenders -->
+            <div class="tab-panel" id="panel-tenders" role="tabpanel" aria-labelledby="tab-tenders" hidden>
+              <ul class="bulletin-list">
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-10-05">05 Oct 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="tend-1">Tender Notice: Procurement of 450 desktop computers and scanning stations for Fast Track Courts.</button>
+                  <span class="tag-expiry">Last Date: 28 Oct 2026</span>
+                </li>
+                <li class="bulletin-item">
+                  <span class="bulletin-date"><time datetime="2026-09-22">22 Sep 2026</time></span>
+                  <button type="button" class="bulletin-link" data-doc-id="tend-1">RFP for Comprehensive Annual Maintenance Contract of IT infrastructure at Sachivalaya Legal Branch.</button>
+                </li>
+              </ul>
+              <div class="panel-more">
+                <button type="button" class="btn-text" onclick="openDocumentViewer('tend-1');">View All Active e-Tenders &rarr;</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Message from the Secretary -->
+          <article class="secretary-card" aria-label="Message from Secretary, Legal Department">
+            <div class="secretary-portrait-wrap">
+              <figure class="secretary-figure">
+                <svg class="placeholder-img portrait-img" viewBox="0 0 160 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Formal portrait placeholder of Principal Secretary Legal Department">
+                  <rect width="160" height="200" fill="#e9edf2"/>
+                  <circle cx="80" cy="70" r="38" fill="#12365f" opacity="0.85"/>
+                  <path d="M 25 180 C 25 125, 135 125, 135 180 Z" fill="#12365f" opacity="0.85"/>
+                  <text x="80" y="195" text-anchor="middle" font-size="9" fill="#64748b" font-family="'Noto Sans', sans-serif">OFFICIAL PORTRAIT</text>
+                </svg>
+                <figcaption class="sr-only">Portrait of Shri R. K. Bhatt, IAS, Principal Secretary (Sample)</figcaption>
+              </figure>
+            </div>
+
+            <div class="secretary-content">
+              <span class="sec-label">Executive Leadership</span>
+              <h3 class="secretary-name">Shri R. K. Bhatt, IAS [Sample]</h3>
+              <p class="secretary-title">Principal Secretary &amp; Remembrancer of Legal Affairs (R.L.A.)<br>Legal Department, Government of Gujarat</p>
+              <blockquote class="secretary-quote">
+                "Our constant endeavour is to establish a transparent, digitally enabled judicial ecosystem that safeguards public interest, accelerates litigation clearance, and delivers prompt legal empowerment to every citizen of Gujarat."
+              </blockquote>
+              <button type="button" class="btn-text" onclick="openDocumentViewer('doc-1');">Read Policy Address &rarr;</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. "Our Work" Section: 3 Image Cards -->
+    <section class="section our-work-sec" id="our-work-heading" aria-labelledby="our-work-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Key Department Mandates</span>
+          <h2 class="section-title" id="our-work-title">Our Core Initiatives</h2>
+          <p class="section-lead">Strengthening grassroots justice, judicial infrastructure, and pre-litigation conciliation across the State of Gujarat.</p>
+        </header>
+
+        <div class="card-grid col-3">
+          <!-- Work Card 1: Rural Legal Awareness Camp -->
+          <article class="work-card">
+            <figure class="work-figure">
+              <svg class="placeholder-img card-img" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Rural legal awareness camp in a Gujarat village with panel lawyers">
+                <defs>
+                  <linearGradient id="campGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1e3a5f"/>
+                    <stop offset="100%" stop-color="#2d5584"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="250" fill="url(#campGrad)"/>
+                <circle cx="200" cy="110" r="45" fill="#d9731a" opacity="0.3"/>
+                <text x="200" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="16" font-weight="700">RURAL LEGAL AWARENESS</text>
+                <text x="200" y="150" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="12">Mobile Legal Aid Clinic &amp; Camp</text>
+              </svg>
+              <figcaption class="work-credit">[Sample Photo Slot: Rural Legal Aid Camp | Source: GSLSA Field Unit]</figcaption>
+            </figure>
+            <div class="work-body">
+              <span class="work-category">Community Outreach</span>
+              <h3 class="work-title">Grassroots Legal Empowerment</h3>
+              <p class="work-desc">Educating rural communities on rights regarding land titles, domestic violence remedies, pension schemes, and Lok Adalat relief.</p>
+            </div>
+          </article>
+
+          <!-- Work Card 2: District Court Complex -->
+          <article class="work-card">
+            <figure class="work-figure">
+              <svg class="placeholder-img card-img" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Modern multi-storey District Court Complex with solar panels and e-seva kendra">
+                <defs>
+                  <linearGradient id="courtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#16432b"/>
+                    <stop offset="100%" stop-color="#246a44"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="250" fill="url(#courtGrad)"/>
+                <rect x="70" y="70" width="260" height="120" fill="#0f2e1e" opacity="0.4"/>
+                <text x="200" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="16" font-weight="700">JUDICIAL INFRASTRUCTURE</text>
+                <text x="200" y="150" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="12">Modern District Court Complex</text>
+              </svg>
+              <figcaption class="work-credit">[Sample Photo Slot: District Court Complex | Source: Roads &amp; Buildings Dept, GoG]</figcaption>
+            </figure>
+            <div class="work-body">
+              <span class="work-category">Infrastructure</span>
+              <h3 class="work-title">e-Courtrooms &amp; Citizen Amenities</h3>
+              <p class="work-desc">Provisioning state-of-the-art judicial complexes equipped with video conferencing, e-Sewa Kendras, and accessible facilities.</p>
+            </div>
+          </article>
+
+          <!-- Work Card 3: Pre-litigation Mediation Session -->
+          <article class="work-card">
+            <figure class="work-figure">
+              <svg class="placeholder-img card-img" viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mediation session in conference room with parties signing settlement deed">
+                <defs>
+                  <linearGradient id="medGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#3d2110"/>
+                    <stop offset="100%" stop-color="#6b3a1d"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="250" fill="url(#medGrad)"/>
+                <circle cx="200" cy="110" r="40" fill="#12365f" opacity="0.4"/>
+                <text x="200" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="16" font-weight="700">PRE-LITIGATION MEDIATION</text>
+                <text x="200" y="150" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="12">Alternative Dispute Resolution Centre</text>
+              </svg>
+              <figcaption class="work-credit">[Sample Photo Slot: Mediation Room Session | Source: Gujarat Mediation Centre]</figcaption>
+            </figure>
+            <div class="work-body">
+              <span class="work-category">Dispute Prevention</span>
+              <h3 class="work-title">Pre-Litigation Conciliation</h3>
+              <p class="work-desc">Preventing court congestion through voluntary institutional mediation in commercial, matrimonial, and civic matters.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Statistics Strip (4 Numbers on Navy Background) -->
+    <section class="stats-strip" aria-labelledby="stats-heading">
+      <div class="container">
+        <h2 id="stats-heading" class="sr-only">Key Department Figures (Sample)</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">91.4%</span>
+            <span class="stat-label">Litigation Response Rate</span>
+            <span class="stat-sub">[Sample Benchmark 2026]</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">38,240</span>
+            <span class="stat-label">Government Cases Monitored</span>
+            <span class="stat-sub">[Active on LCMS Portal]</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">1,42,000+</span>
+            <span class="stat-label">Lok Adalat Settlements</span>
+            <span class="stat-sub">[Consensual Disposals]</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3,450+</span>
+            <span class="stat-label">Registered Notaries Public</span>
+            <span class="stat-sub">[Across 33 Districts]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Responsive Data Table (Acts & Rules List with Live Filters & PDF Viewer) -->
+    <section class="section acts-rules-sec" id="acts-heading" aria-labelledby="acts-title-head">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Legislative Framework</span>
+          <h2 class="section-title" id="acts-title-head">Statutory Acts, Codes &amp; Rules</h2>
+          <p class="section-lead">Authoritative state legislations and statutory rules administered by the Legal Department, Government of Gujarat.</p>
+        </header>
+
+        <!-- Live Filter Bar -->
+        <div class="table-filter-bar">
+          <div class="filter-group">
+            <label for="act-branch-filter" class="form-label" style="margin-bottom:0;">Branch:</label>
+            <select id="act-branch-filter" class="filter-select">
+              <option value="">All Branches</option>
+              <option value="Judicial">Judicial Branch</option>
+              <option value="Legal Aid">Legal Aid Branch</option>
+              <option value="Legislation">Legislation Branch</option>
+              <option value="Advocate">Advocate Branch</option>
+              <option value="Litigation">Litigation Branch</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="act-table-search" class="form-label" style="margin-bottom:0;">Filter Table:</label>
+            <input type="text" id="act-table-search" class="filter-input" placeholder="Search Act Title...">
+          </div>
+        </div>
+
+        <div class="table-container" tabindex="0" role="region" aria-label="Acts and Rules Table, scrollable">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 60px;">Sr. No.</th>
+                <th scope="col">Act / Rule Title</th>
+                <th scope="col">Year / No.</th>
+                <th scope="col">Administering Branch</th>
+                <th scope="col">Date of Gazette</th>
+                <th scope="col">View Document</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-branch="Judicial" data-type="State Act">
+                <td>1</td>
+                <td>
+                  <strong>Gujarat Civil Courts Act, 2005</strong>
+                  <span class="row-sub">An Act to consolidate and amend law relating to Civil Courts in Gujarat</span>
+                </td>
+                <td>Act 21 of 2005</td>
+                <td>Judicial Branch</td>
+                <td><time datetime="2005-03-24">24-03-2005</time></td>
+                <td>
+                  <button type="button" class="btn-pdf-link" data-act-id="act-1" aria-label="Open Gujarat Civil Courts Act 2005 Gazette">
+                    <span class="pdf-icon" aria-hidden="true">📄</span> PDF <span class="file-size">(480 KB)</span>
+                  </button>
+                </td>
+              </tr>
+              <tr data-branch="Legal Aid" data-type="Rules">
+                <td>2</td>
+                <td>
+                  <strong>Gujarat State Legal Services Authority Regulations</strong>
+                  <span class="row-sub">Procedures governing grant of legal aid and panel advocate appointments</span>
+                </td>
+                <td>Reg. No. 4/1998</td>
+                <td>Legal Aid Branch</td>
+                <td><time datetime="1998-11-14">14-11-1998</time></td>
+                <td>
+                  <button type="button" class="btn-pdf-link" data-act-id="act-2" aria-label="Open GSLSA Regulations Gazette">
+                    <span class="pdf-icon" aria-hidden="true">📄</span> PDF <span class="file-size">(320 KB)</span>
+                  </button>
+                </td>
+              </tr>
+              <tr data-branch="Legislation" data-type="State Act">
+                <td>3</td>
+                <td>
+                  <strong>The Gujarat Court Fees Act, 2004</strong>
+                  <span class="row-sub">Consolidated statutory schedule of court fees and ad-valorem stamp duties</span>
+                </td>
+                <td>Act 4 of 2004</td>
+                <td>Legislation Branch</td>
+                <td><time datetime="2004-02-17">17-02-2004</time></td>
+                <td>
+                  <button type="button" class="btn-pdf-link" data-act-id="act-3" aria-label="Open Gujarat Court Fees Act 2004 Gazette">
+                    <span class="pdf-icon" aria-hidden="true">📄</span> PDF <span class="file-size">(610 KB)</span>
+                  </button>
+                </td>
+              </tr>
+              <tr data-branch="Advocate" data-type="Rules">
+                <td>4</td>
+                <td>
+                  <strong>Gujarat Advocate Welfare Fund Rules</strong>
+                  <span class="row-sub">Welfare fund constitution, membership stamp duties, and trustee administration</span>
+                </td>
+                <td>Rules 1991</td>
+                <td>Advocate Branch</td>
+                <td><time datetime="1991-08-09">09-08-1991</time></td>
+                <td>
+                  <button type="button" class="btn-pdf-link" data-act-id="act-4" aria-label="Open Advocate Welfare Fund Rules Gazette">
+                    <span class="pdf-icon" aria-hidden="true">📄</span> PDF <span class="file-size">(290 KB)</span>
+                  </button>
+                </td>
+              </tr>
+              <tr data-branch="Litigation" data-type="Rules">
+                <td>5</td>
+                <td>
+                  <strong>Gujarat Law Officers (Conditions of Service) Rules</strong>
+                  <span class="row-sub">Terms of engagement, appearance fees, retainers, and duties of Govt Pleaders</span>
+                </td>
+                <td>G.R. 2018 (Amended 2026)</td>
+                <td>Litigation Branch</td>
+                <td><time datetime="2026-01-15">15-01-2026</time></td>
+                <td>
+                  <button type="button" class="btn-pdf-link" data-act-id="act-5" aria-label="Open Gujarat Law Officers Rules Gazette">
+                    <span class="pdf-icon" aria-hidden="true">📄</span> PDF <span class="file-size">(540 KB)</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-note">
+          <small>Click on any "PDF" button to open the authenticated Gazette document viewer with print and download capability.</small>
+          <small>[Sample Data - Official Gazette Extracts]</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Photo Gallery: 4 Images in a Grid with Lightbox -->
+    <section class="section gallery-sec" id="gallery-sec" aria-labelledby="gallery-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Department Glimpses</span>
+          <h2 class="section-title" id="gallery-heading">Official Event Gallery</h2>
+          <p class="section-lead">Click any event photo to inspect high-resolution details and event metadata.</p>
+        </header>
+
+        <div class="card-grid col-4 gallery-grid">
+          <figure class="gallery-item" tabindex="0" role="button" aria-label="Open State Judicial Conference Photo">
+            <svg class="placeholder-img gallery-img" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Judicial conference symposium with seated dignitaries on dais">
+              <rect width="320" height="240" fill="#1b395f"/>
+              <circle cx="160" cy="110" r="35" fill="#d9731a" opacity="0.3"/>
+              <text x="160" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="14" font-weight="600">JUDICIAL SYMPOSIUM</text>
+              <text x="160" y="148" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="11">State Judicial Academy</text>
+            </svg>
+            <figcaption class="gallery-caption">
+              <strong>State Judicial Conference</strong>
+              <span>[Sample Photo Slot | Source: GJA Gandhinagar]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" tabindex="0" role="button" aria-label="Open Constitution Day Photo">
+            <svg class="placeholder-img gallery-img" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Officers reading Constitution Preamble pledge on Samvidhan Divas">
+              <rect width="320" height="240" fill="#1a4630"/>
+              <circle cx="160" cy="110" r="35" fill="#f4f6f9" opacity="0.2"/>
+              <text x="160" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="14" font-weight="600">CONSTITUTION DAY</text>
+              <text x="160" y="148" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="11">Preamble Reading Pledge</text>
+            </svg>
+            <figcaption class="gallery-caption">
+              <strong>Samvidhan Divas Observance</strong>
+              <span>[Sample Photo Slot | Source: Info Dept, GoG]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" tabindex="0" role="button" aria-label="Open e-Sewa Kendra Photo">
+            <svg class="placeholder-img gallery-img" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Inauguration of e-Sewa Kendra touch-screen citizen kiosk">
+              <rect width="320" height="240" fill="#462713"/>
+              <circle cx="160" cy="110" r="35" fill="#d9731a" opacity="0.3"/>
+              <text x="160" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="14" font-weight="600">e-SEWA KENDRA</text>
+              <text x="160" y="148" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="11">Kiosk Inauguration</text>
+            </svg>
+            <figcaption class="gallery-caption">
+              <strong>Digital Citizen Kiosk Launch</strong>
+              <span>[Sample Photo Slot | Source: e-Courts Mission]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item" tabindex="0" role="button" aria-label="Open Legal Literacy Photo">
+            <svg class="placeholder-img gallery-img" viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Legal awareness camp for self help groups with handbook distribution">
+              <rect width="320" height="240" fill="#1b2a47"/>
+              <circle cx="160" cy="110" r="35" fill="#1f7a3f" opacity="0.4"/>
+              <text x="160" y="125" text-anchor="middle" fill="#f4f6f9" font-family="'Noto Serif', serif" font-size="14" font-weight="600">LEGAL LITERACY DRIVE</text>
+              <text x="160" y="148" text-anchor="middle" fill="#cbd5e1" font-family="'Noto Sans', sans-serif" font-size="11">Women Empowerment Clinic</text>
+            </svg>
+            <figcaption class="gallery-caption">
+              <strong>Tribal Legal Literacy Drive</strong>
+              <span>[Sample Photo Slot | Source: GSLSA Gujarat]</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Vision & Mandates (#about-vision) -->
+    <section class="section about-us-sec" id="about-vision" aria-labelledby="about-vision-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Department Overview</span>
+          <h2 class="section-title" id="about-vision-title">Vision, Mission &amp; Statutory Duties</h2>
+          <p class="section-lead">The Legal Department advises the Government of Gujarat on all legal, statutory, and constitutional matters, coordinates litigation on behalf of the State, and oversees the administration of justice.</p>
+        </header>
+
+        <div class="card-grid col-3">
+          <div class="info-card" style="padding: var(--space-3);">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--color-primary);">1. Legislative Drafting</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Scrutinizing and drafting all government bills, ordinances, and statutory rules introduced in the Gujarat Legislative Assembly.</p>
+          </div>
+          <div class="info-card" style="padding: var(--space-3);">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--color-primary);">2. Litigation Defense</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Defending public interest in matters pending before the Supreme Court of India, High Court of Gujarat, and Subordinate Courts through designated Law Officers.</p>
+          </div>
+          <div class="info-card" style="padding: var(--space-3);">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--color-primary);">3. Legal Aid &amp; Lok Adalats</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted);">Ensuring no citizen is denied justice by reason of economic disability through statutory legal aid clinics, mediation, and Lok Adalat benches.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Organizational Chart (#about-org) -->
+    <section class="section org-sec" id="about-org" aria-labelledby="org-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Administrative Hierarchy</span>
+          <h2 class="section-title" id="org-title">Organizational Chart</h2>
+          <p class="section-lead">Functional governance structure of the Legal Department at Sachivalaya, Gandhinagar.</p>
+        </header>
+
+        <div class="org-tree">
+          <!-- Level 1 -->
+          <div class="org-level">
+            <div class="org-node top-level">
+              <strong>Hon'ble Minister for Law &amp; Justice</strong><br>
+              <small>Government of Gujarat</small>
+            </div>
+          </div>
+          <!-- Level 2 -->
+          <div class="org-level">
+            <div class="org-node top-level">
+              <strong>Principal Secretary &amp; R.L.A.</strong><br>
+              <small>Administrative Head of Department</small>
+            </div>
+          </div>
+          <!-- Level 3 -->
+          <div class="org-level">
+            <div class="org-node">
+              <strong>Joint Secretary (Litigation)</strong><br>
+              <small>High Court &amp; Supreme Court Matters</small>
+            </div>
+            <div class="org-node">
+              <strong>Joint Secretary (Drafting)</strong><br>
+              <small>Statutory Acts, Ordinances &amp; Gazettes</small>
+            </div>
+            <div class="org-node">
+              <strong>Joint Secretary (Judicial Admin)</strong><br>
+              <small>Subordinate Courts &amp; Notary Branch</small>
+            </div>
+          </div>
+          <!-- Level 4 -->
+          <div class="org-level">
+            <div class="org-node">
+              <strong>Deputy Secretaries (Litigation / Budget)</strong>
+            </div>
+            <div class="org-node">
+              <strong>Government Pleader &amp; Public Prosecutor</strong>
+            </div>
+            <div class="org-node">
+              <strong>Under Secretaries &amp; Section Officers</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Key Officials Roster (#key-officials) -->
+    <section class="section officials-sec" id="key-officials" aria-labelledby="officials-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Department Directory</span>
+          <h2 class="section-title" id="officials-title">Key Officials Roster</h2>
+          <p class="section-lead">Administrative and legal officers stationed at Sachivalaya, Block No. 4, Gandhinagar.</p>
+        </header>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Officer Name &amp; Cadre</th>
+                <th>Designation / Portfolio</th>
+                <th>Office Location</th>
+                <th>Telephone (EPABX)</th>
+                <th>Official Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Shri R. K. Bhatt, IAS [Sample]</strong></td>
+                <td>Principal Secretary &amp; Remembrancer of Legal Affairs (R.L.A.)</td>
+                <td>3rd Floor, Room 301, Block 4</td>
+                <td>+91 79 2325 0801</td>
+                <td><code>sec-legal@gujarat.gov.in</code></td>
+              </tr>
+              <tr>
+                <td><strong>Shri H. M. Joshi, GAS [Sample]</strong></td>
+                <td>Joint Secretary (Litigation &amp; Law Officers)</td>
+                <td>3rd Floor, Room 308, Block 4</td>
+                <td>+91 79 2325 0812</td>
+                <td><code>js-lit@gujarat.gov.in</code></td>
+              </tr>
+              <tr>
+                <td><strong>Smt. P. R. Mehta, GJS [Sample]</strong></td>
+                <td>Joint Secretary (Legislation &amp; Statutory Drafting)</td>
+                <td>2nd Floor, Room 214, Block 4</td>
+                <td>+91 79 2325 0815</td>
+                <td><code>js-draft@gujarat.gov.in</code></td>
+              </tr>
+              <tr>
+                <td><strong>Shri V. S. Dave [Sample]</strong></td>
+                <td>Government Pleader (High Court of Gujarat)</td>
+                <td>High Court Legal Cell, Sola</td>
+                <td>+91 79 2766 4101</td>
+                <td><code>gp-highcourt@gujarat.gov.in</code></td>
+              </tr>
+              <tr>
+                <td><strong>Shri D. C. Parmar [Sample]</strong></td>
+                <td>Under Secretary (Accounts &amp; Fee Bill Disbursal)</td>
+                <td>2nd Floor, Room 204, Block 4</td>
+                <td>+91 79 2325 0824</td>
+                <td><code>us-accts@gujarat.gov.in</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Citizen's Charter (#citizen-charter) -->
+    <section class="section charter-sec" id="citizen-charter" aria-labelledby="charter-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Guaranteed Service Delivery</span>
+          <h2 class="section-title" id="charter-title">Citizen's Charter &amp; Service Standards</h2>
+          <p class="section-lead">Time-bound service delivery commitments under the Gujarat Public Services Act.</p>
+        </header>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Target Beneficiary</th>
+                <th>Maximum SLA Timeline</th>
+                <th>Competent Authority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Allotment of Free Legal Aid Counsel</strong></td>
+                <td>Eligible Citizens (Income &lt; ₹3 Lakh / SC / ST / Women)</td>
+                <td><span class="charter-sla-badge">3 Working Days</span></td>
+                <td>Member Secretary, GSLSA</td>
+              </tr>
+              <tr>
+                <td><strong>Notary Public Practice Renewal Certificate</strong></td>
+                <td>Registered Notaries Public</td>
+                <td><span class="charter-sla-badge">15 Working Days</span></td>
+                <td>Deputy Secretary (Notary Branch)</td>
+              </tr>
+              <tr>
+                <td><strong>Government Advocate Fee Voucher Settlement</strong></td>
+                <td>Panel Advocates &amp; Law Officers</td>
+                <td><span class="charter-sla-badge">21 Working Days</span></td>
+                <td>Accounts Officer (Head 2014)</td>
+              </tr>
+              <tr>
+                <td><strong>RTI Section 4(1)(b) Information Supply</strong></td>
+                <td>Any Indian Citizen</td>
+                <td><span class="charter-sla-badge">30 Calendar Days</span></td>
+                <td>Public Information Officer (PIO)</td>
+              </tr>
+              <tr>
+                <td><strong>Disposal of Public Grievances on SWAGAT Portal</strong></td>
+                <td>General Public</td>
+                <td><span class="charter-sla-badge">30 Working Days</span></td>
+                <td>Principal Secretary, Legal Dept</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RTI Proactive Disclosures Section (#rti-sec) -->
+    <section class="section rti-sec" id="rti-sec" aria-labelledby="rti-title-head">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Right to Information Act, 2005</span>
+          <h2 class="section-title" id="rti-title-head">RTI Section 4(1)(b) Proactive Disclosures</h2>
+          <p class="section-lead">Statutory information regarding Public Information Officers (PIOs) and Appellate Authorities in Sachivalaya, Gandhinagar.</p>
+        </header>
+
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Designation</th>
+                <th>Role Under RTI Act</th>
+                <th>Branch / Jurisdiction</th>
+                <th>Office Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Deputy Secretary (Legal)</strong></td>
+                <td>First Appellate Authority (FAA)</td>
+                <td>Litigation, Subordinate Courts &amp; Service Rules</td>
+                <td>Block 4, 3rd Floor, Sachivalaya | Extn. 2325</td>
+              </tr>
+              <tr>
+                <td><strong>Under Secretary (Administration)</strong></td>
+                <td>Public Information Officer (PIO)</td>
+                <td>Establishment, Budget &amp; General Administration</td>
+                <td>Block 4, 2nd Floor, Sachivalaya | Extn. 2318</td>
+              </tr>
+              <tr>
+                <td><strong>Section Officer (Notary Branch)</strong></td>
+                <td>Assistant Public Information Officer (APIO)</td>
+                <td>Notary Appointments &amp; Advocate Welfare Matters</td>
+                <td>Block 4, 2nd Floor, Sachivalaya | Extn. 2341</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Citizen Grievance & Contact Section (#contact-sec) -->
+    <section class="section contact-sec" id="contact-sec" aria-labelledby="contact-title-head">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-kicker">Citizen Redressal &amp; Communication</span>
+          <h2 class="section-title" id="contact-title-head">Citizen Grievance &amp; Contact Desk</h2>
+          <p class="section-lead">Submit an official inquiry, suggestion, or grievance directly to the Legal Department desk. A tracking number is generated immediately.</p>
+        </header>
+
+        <div id="contact-form-alert" style="display: none;"></div>
+
+        <form id="portal-contact-form" class="info-card" style="padding: var(--space-4);">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Full Name of Citizen / Advocate *</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="e.g. Rajeshbhai M. Parmar" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email Address *</label>
+              <input type="email" id="contact-email" class="form-input" placeholder="e.g. rajesh.parmar@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone" class="form-label">Mobile Number *</label>
+              <input type="tel" id="contact-phone" class="form-input" placeholder="e.g. 98250 12345" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject / Matter Category *</label>
+              <select id="contact-subject" class="form-select" required>
+                <option value="">Select Category</option>
+                <option value="Litigation Status">Litigation Status Inquiry</option>
+                <option value="Advocate Fee Bill">Advocate Fee Bill Query</option>
+                <option value="Notary Application">Notary Public Practice Renewal</option>
+                <option value="Legal Aid Petition">Free Legal Aid Assistance</option>
+                <option value="General Grievance">General Administrative Grievance</option>
+              </select>
+            </div>
+            <div class="form-group col-span-2">
+              <label for="contact-message" class="form-label">Details of Grievance / Inquiry *</label>
+              <textarea id="contact-message" class="form-textarea" rows="4" placeholder="Please provide specific details including Case No. or Voucher Ref. if applicable..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Submit Grievance to Legal Department &rarr;</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Screen Reader Information Section -->
+    <section id="screen-reader-info" class="sr-only" aria-label="Screen Reader Instructions">
+      <h2>Screen Reader Accessibility Information</h2>
+      <p>This portal complies with Guidelines for Indian Government Websites (GIGW 3.0) and World Wide Web Consortium (W3C) Web Content Accessibility Guidelines (WCAG) 2.1 level AA. It can be accessed using screen readers such as NVDA, JAWS, or Windows Narrator. Use the 'Skip to main content' link at the top of the page for rapid landmark navigation.</p>
+    </section>
+
+  </main>
+
+  <!-- 13. Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <!-- Col 1: Office Address -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Postal &amp; Office Address</h3>
+          <address class="footer-address">
+            <strong>Legal Department</strong><br>
+            Government of Gujarat<br>
+            Block No. 4, 3rd Floor, New Sachivalaya,<br>
+            Sector 10, Gandhinagar - 382010, Gujarat, India.<br>
+            <br>
+            <strong>Telephone:</strong> +91 79 2325 0801 / 0802 [Sample]<br>
+            <strong>EPABX Fax:</strong> +91 79 2325 0805 [Sample]<br>
+            <strong>Official Email:</strong> <a href="mailto:sec-legal@gujarat.gov.in">sec-legal@gujarat.gov.in</a> [Sample]
+          </address>
+        </div>
+
+        <!-- Col 2: Important Portals -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Important Judicial Portals</h3>
+          <ul class="footer-links">
+            <li><a href="https://gujarathighcourt.nic.in" target="_blank" rel="noopener noreferrer">High Court of Gujarat</a></li>
+            <li><a href="https://districts.ecourts.gov.in/gujarat" target="_blank" rel="noopener noreferrer">e-Courts District Portals</a></li>
+            <li><a href="https://gslsa.gujarat.gov.in" target="_blank" rel="noopener noreferrer">Gujarat State Legal Services (GSLSA)</a></li>
+            <li><button type="button" class="btn-trigger-lcms">Case Management System (LCMS)</button></li>
+            <li><a href="https://indiacode.nic.in" target="_blank" rel="noopener noreferrer">India Code Legislative Repository</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Acts, RTI & Guidelines -->
+        <div class="footer-col">
+          <h3 class="footer-heading">RTI &amp; Statutory Disclosures</h3>
+          <ul class="footer-links">
+            <li><a href="#rti-sec">RTI Section 4(1)(b) Proactive Disclosures</a></li>
+            <li><a href="#key-officials">Public Information Officers Directory</a></li>
+            <li><a href="#rti-sec">Appellate Authority Details</a></li>
+            <li><a href="#citizen-charter">Citizen's Charter &amp; Grievances</a></li>
+            <li><button type="button" onclick="openDocumentViewer('act-5');">Advocate Conditions of Service Rules</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Website Policies -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Portal Policies</h3>
+          <ul class="footer-links">
+            <li><button type="button" onclick="openDocumentViewer('act-2');">Privacy Policy</button></li>
+            <li><button type="button" onclick="openDocumentViewer('act-3');">Hyperlinking Policy</button></li>
+            <li><button type="button" onclick="openDocumentViewer('act-4');">Copyright Policy</button></li>
+            <li><button type="button" onclick="openDocumentViewer('act-1');">Terms &amp; Conditions</button></li>
+            <li><a href="#screen-reader-info">Accessibility Statement</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Bar -->
+    <div class="footer-bottom">
+      <div class="container copyright-container">
+        <div class="copyright-text">
+          <p>© 2026 Legal Department, Government of Gujarat. All Rights Reserved.</p>
+          <p class="hosting-note">Website designed &amp; maintained in adherence with Guidelines for Indian Government Websites (GIGW 3.0).</p>
+        </div>
+        <div class="updated-text">
+          <p><strong>Page Last Updated:</strong> <time datetime="2026-10-14">14 October 2026</time> [Sample]</p>
+          <p><strong>Visitors Count:</strong> <span class="visitor-counter">1,482,903</span> [Sample]</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 0: AUTHENTICATION MODAL (LOGIN & REGISTRATION WITH 1-CLICK ROLES)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="auth-modal-title">🔐 Officer &amp; Advocate Portal Access</h3>
+        <button type="button" class="modal-close-btn" aria-label="Close authentication modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Auth Tabs: Sign In vs Register -->
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="auth-tab-login" role="tab" aria-selected="true">Official Sign In</button>
+          <button type="button" class="auth-tab-btn" id="auth-tab-register" role="tab" aria-selected="false">New Advocate Registration</button>
+        </div>
+
+        <!-- 1-Click Role Simulation Login Box -->
+        <div class="quick-roles-wrap">
+          <span class="quick-roles-title">⚡ 1-Click Demo Login (Select Role):</span>
+          <div class="quick-roles-pills">
+            <button type="button" class="role-pill-btn" data-user="adv_meera" data-name="Adv. Meera Shah" data-role="ADVOCATE">⚖️ Advocate (Meera)</button>
+            <button type="button" class="role-pill-btn" data-user="legal_sharma" data-name="Shri R. Sharma" data-role="LEGAL_OFFICER">🏛️ Legal Officer</button>
+            <button type="button" class="role-pill-btn" data-user="verifier_desai" data-name="Smt. P. Desai" data-role="VERIFIER">📋 Bill Verifier</button>
+            <button type="button" class="role-pill-btn" data-user="approver_mehta" data-name="Shri A. Mehta" data-role="APPROVER">✍️ Approver Authority</button>
+            <button type="button" class="role-pill-btn" data-user="finance_vyas" data-name="Shri K. Vyas" data-role="FINANCE_OFFICER">💰 Finance Officer</button>
+            <button type="button" class="role-pill-btn" data-user="admin_guj" data-name="System Admin" data-role="ADMIN">🛡️ Administrator</button>
+          </div>
+        </div>
+
+        <div id="auth-msg-box" style="display: none;"></div>
+
+        <!-- Tab Panel 1: Login Form -->
+        <div id="auth-login-panel">
+          <form id="portal-login-form">
+            <div class="form-grid" style="grid-template-columns: 1fr;">
+              <div class="form-group">
+                <label for="login-username" class="form-label">Username / Official Government Email *</label>
+                <input type="text" id="login-username" class="form-input" placeholder="e.g. adv_meera or legal_sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="login-password" class="form-label">Password *</label>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter portal password" value="demo123" required>
+              </div>
+              <div class="form-group">
+                <label for="login-role" class="form-label">Authorized Role Category *</label>
+                <select id="login-role" class="form-select" required>
+                  <option value="ADVOCATE">Advocate on Record / Panel Counsel</option>
+                  <option value="LEGAL_OFFICER">Legal Officer / Law Branch</option>
+                  <option value="VERIFIER">Bill Processing Verifier</option>
+                  <option value="APPROVER">Approving Authority (Law Secretary)</option>
+                  <option value="FINANCE_OFFICER">Finance &amp; Treasury Disbursal</option>
+                  <option value="ADMIN">System Administrator</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Sign In to LCMS Legal Portal &rarr;</button>
+          </form>
+        </div>
+
+        <!-- Tab Panel 2: Registration Form -->
+        <div id="auth-register-panel" style="display: none;">
+          <form id="portal-register-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="reg-name" class="form-label">Full Name of Advocate *</label>
+                <input type="text" id="reg-name" class="form-input" placeholder="e.g. Adv. Pranav K. Mehta" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-bar-no" class="form-label">Bar Council Enrollment No. *</label>
+                <input type="text" id="reg-bar-no" class="form-input" placeholder="e.g. G/1842/2019" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-district" class="form-label">Principal District of Practice *</label>
+                <select id="reg-district" class="form-select" required>
+                  <option value="Ahmedabad">Ahmedabad (High Court / City Civil)</option>
+                  <option value="Gandhinagar">Gandhinagar (Sachivalaya / District Court)</option>
+                  <option value="Surat">Surat</option>
+                  <option value="Vadodara">Vadodara</option>
+                  <option value="Rajkot">Rajkot</option>
+                  <option value="Banaskantha">Banaskantha</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="reg-role-type" class="form-label">Panel Designation *</label>
+                <select id="reg-role-type" class="form-select" required>
+                  <option value="ADVOCATE">Panel Advocate</option>
+                  <option value="LEGAL_OFFICER">Assistant Public Prosecutor (APP)</option>
+                  <option value="LEGAL_OFFICER">Assistant Government Pleader (AGP)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="reg-mobile" class="form-label">Mobile Number (OTP linked) *</label>
+                <input type="tel" id="reg-mobile" class="form-input" placeholder="10-digit mobile" required>
+              </div>
+              <div class="form-group">
+                <label for="reg-email" class="form-label">Email Address *</label>
+                <input type="email" id="reg-email" class="form-input" placeholder="advocate@barcouncil.org" required>
+              </div>
+              <div class="form-group col-span-2">
+                <label for="reg-password" class="form-label">Choose Strong Password *</label>
+                <input type="password" id="reg-password" class="form-input" placeholder="Minimum 8 characters" required>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Complete Advocate Portal Enrollment &rarr;</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary btn-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 1: OFFICIAL GAZETTE & DOCUMENT VIEWER
+       ========================================================================== -->
+  <div class="modal-backdrop" id="document-modal" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="doc-modal-title">Official Gazette Viewer</h3>
+        <button type="button" class="modal-close-btn" aria-label="Close document viewer">&times;</button>
+      </div>
+      <div class="modal-body" id="doc-modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-primary" id="btn-print-doc">🖨️ Print / Save Document</button>
+        <button type="button" class="btn-secondary btn-modal-close">Close Viewer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: CITIZEN LEGAL AID APPLICATION (GSLSA)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="legal-aid-modal" role="dialog" aria-modal="true" aria-labelledby="aid-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="aid-modal-title">Application for Free Legal Aid (GSLSA)</h3>
+        <button type="button" class="modal-close-btn" aria-label="Close legal aid modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1rem;">
+          Under Section 12 of the Legal Services Authorities Act, 1987, citizens belonging to SC/ST, women, children, persons with disabilities, and persons with annual income under ₹3,00,000 are entitled to free legal aid.
+        </p>
+        <div id="legal-aid-success" style="display:none;"></div>
+        <form id="legal-aid-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="aid-name" class="form-label">Full Name of Applicant *</label>
+              <input type="text" id="aid-name" class="form-input" placeholder="e.g. Shantaben K. Vaghela" required>
+            </div>
+            <div class="form-group">
+              <label for="aid-district" class="form-label">Jurisdictional District *</label>
+              <select id="aid-district" class="form-select" required>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Gandhinagar">Gandhinagar</option>
+                <option value="Surat">Surat</option>
+                <option value="Vadodara">Vadodara</option>
+                <option value="Rajkot">Rajkot</option>
+                <option value="Banaskantha">Banaskantha</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="aid-category" class="form-label">Eligibility Category *</label>
+              <select id="aid-category" class="form-select" required>
+                <option value="Woman / Child">Woman / Child</option>
+                <option value="Income Below ₹3,00,000">Annual Income Below ₹3 Lakhs</option>
+                <option value="SC / ST Category">Scheduled Caste / Scheduled Tribe</option>
+                <option value="Person with Disability">Person with Disability (Divyangjan)</option>
+                <option value="Industrial Worker">Industrial Workman</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="aid-phone" class="form-label">Mobile Number *</label>
+              <input type="tel" id="aid-phone" class="form-input" placeholder="10-digit mobile" required>
+            </div>
+            <div class="form-group col-span-2">
+              <label for="aid-nature" class="form-label">Nature of Legal Matter / Case Summary *</label>
+              <textarea id="aid-nature" class="form-textarea" rows="3" placeholder="Briefly describe the dispute, pending court name if any..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Submit Legal Aid Petition &rarr;</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary btn-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: NOTARY PUBLIC REGISTER
+       ========================================================================== -->
+  <div class="modal-backdrop" id="notary-modal" role="dialog" aria-modal="true" aria-labelledby="notary-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="notary-modal-title">State Notary Public Directory</h3>
+        <button type="button" class="modal-close-btn" aria-label="Close notary modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="table-filter-bar">
+          <div class="filter-group">
+            <label for="notary-district" class="form-label" style="margin-bottom:0;">District:</label>
+            <select id="notary-district" class="filter-select">
+              <option value="">All Districts</option>
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Gandhinagar">Gandhinagar</option>
+              <option value="Surat">Surat</option>
+              <option value="Vadodara">Vadodara</option>
+              <option value="Rajkot">Rajkot</option>
+              <option value="Banaskantha">Banaskantha</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="notary-search" class="form-label" style="margin-bottom:0;">Search:</label>
+            <input type="text" id="notary-search" class="filter-input" placeholder="Search Notary Name or Reg No...">
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Notary Advocate</th>
+                <th>Certificate No.</th>
+                <th>District</th>
+                <th>Contact</th>
+                <th>Valid Upto</th>
+              </tr>
+            </thead>
+            <tbody id="notary-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary btn-modal-close">Close Directory</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 4: INTEGRATED LEGAL CASE MANAGEMENT SYSTEM (LCMS CONSOLE)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="lcms-modal" role="dialog" aria-modal="true" aria-labelledby="lcms-modal-title" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1000px;">
+      <div class="modal-header" style="background-color: var(--color-primary); color: #ffffff;">
+        <h3 class="modal-title" id="lcms-modal-title" style="color:#ffffff;">⚖️ Legal Case Management System (LCMS) Console</h3>
+        <button type="button" class="modal-close-btn" style="color:#ffffff;" aria-label="Close LCMS console">&times;</button>
+      </div>
+      <div class="modal-body" style="padding-top: var(--space-2);">
+        <!-- Active User Badge in LCMS Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#f1f5f9; padding:0.5rem 1rem; border-radius:4px; margin-bottom:1rem; font-size:0.85rem;">
+          <span>Logged in as: <strong id="lcms-active-user-name">Adv. Meera Shah</strong> (<span id="lcms-active-user-role" style="color:var(--color-accent-saffron); font-weight:700;">ADVOCATE</span>)</span>
+          <span style="color:#475569;">Database Scope: Legal Department, Gandhinagar</span>
+        </div>
+
+        <!-- LCMS Sub-Navigation Tabs -->
+        <div class="tabs-header" style="margin-bottom: var(--space-3);">
+          <button type="button" class="tab-btn lcms-tab-btn active" data-target="lcms-panel-cases">Active Cases Docket</button>
+          <button type="button" class="tab-btn lcms-tab-btn" data-target="lcms-panel-claim">Submit Fee Voucher</button>
+          <button type="button" class="tab-btn lcms-tab-btn" data-target="lcms-panel-attendance">Advocate Attendance</button>
+          <button type="button" class="tab-btn lcms-tab-btn" data-target="lcms-panel-budget">Budget Utilization</button>
+        </div>
+
+        <!-- Panel 1: Cases Docket -->
+        <div class="lcms-panel active" id="lcms-panel-cases">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Internal Case ID</th>
+                  <th>Court &amp; Ref No.</th>
+                  <th>Subject Matter</th>
+                  <th>Assigned Advocate</th>
+                  <th>Next Hearing</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>CASE-2026-0007</strong></td>
+                  <td>Gujarat High Court<br><small>SCA/118/2026</small></td>
+                  <td>Revenue Land Re-survey Dispute</td>
+                  <td>Adv. Meera Shah</td>
+                  <td><time datetime="2026-10-22">22-Oct-2026</time></td>
+                  <td><span class="card-status-pill" style="background:#e0f2fe; color:#0369a1;">ACTIVE</span></td>
+                </tr>
+                <tr>
+                  <td><strong>CASE-2026-0014</strong></td>
+                  <td>Civil Court Gandhinagar<br><small>RCS/42/2026</small></td>
+                  <td>Public Procurement Tender Contract</td>
+                  <td>Adv. Rajesh Trivedi</td>
+                  <td><time datetime="2026-11-05">05-Nov-2026</time></td>
+                  <td><span class="card-status-pill" style="background:#fef3c7; color:#b45309;">ADJOURNED</span></td>
+                </tr>
+                <tr>
+                  <td><strong>CASE-2026-0022</strong></td>
+                  <td>District Court Ahmedabad<br><small>CMA/309/2026</small></td>
+                  <td>Service Promotion Seniority Fixation</td>
+                  <td>Adv. Dhaval Bhatt</td>
+                  <td><time datetime="2026-11-12">12-Nov-2026</time></td>
+                  <td><span class="card-status-pill" style="background:#dcfce7; color:#15803d;">COMPLETED</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Panel 2: Fee Voucher Submission -->
+        <div class="lcms-panel" id="lcms-panel-claim" style="display:none;">
+          <div id="lcms-duplicate-alert" style="display:none; background:#fee2e2; border:1px solid #ef4444; color:#991b1b; padding:0.75rem; border-radius:4px; margin-bottom:1rem;">
+            <strong>⚠️ Candidate Duplicate Claim Warning:</strong> Invoice reference <code>ADV-INV-1042</code> already exists for Adv. Meera Shah on CASE-2026-0007!
+          </div>
+          <form id="lcms-fee-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="claim-case-no" class="form-label">Linked Government Case *</label>
+                <select id="claim-case-no" class="form-select" required>
+                  <option value="CASE-2026-0007 (SCA/118/2026)">CASE-2026-0007 (High Court SCA/118/2026)</option>
+                  <option value="CASE-2026-0014 (RCS/42/2026)">CASE-2026-0014 (Civil Court RCS/42/2026)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="claim-inv-ref" class="form-label">Advocate Invoice Reference *</label>
+                <input type="text" id="claim-inv-ref" class="form-input" placeholder="e.g. ADV-INV-1042" required>
+              </div>
+              <div class="form-group">
+                <label for="claim-fee-cat" class="form-label">Fee Category / Rule *</label>
+                <select id="claim-fee-cat" class="form-select" required>
+                  <option value="Per Appearance (High Court)">Per Appearance - Gujarat High Court (₹2,500)</option>
+                  <option value="Senior Civil Court">Per Appearance - Senior Civil Court (₹1,500)</option>
+                  <option value="Drafting / Written Statement">Drafting Written Statement (₹1,000)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="claim-base-fee" class="form-label">Professional Appearance Fee (₹) *</label>
+                <input type="number" id="claim-base-fee" class="form-input" value="2500" required>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Clerkage Allowance (10%, Capped at ₹1500):</span>
+                <span id="claim-clerkage" style="font-weight:700; color:var(--color-primary); padding: 0.5rem 0;">₹250.00</span>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Total Payable Claim Amount:</span>
+                <span id="claim-total-amount" style="font-size:1.2rem; font-weight:700; color:var(--color-accent-green); padding: 0.5rem 0;">₹2,750.00</span>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary">Submit Fee Claim with Document Checklist &rarr;</button>
+          </form>
+        </div>
+
+        <!-- Panel 3: Attendance Desk -->
+        <div class="lcms-panel" id="lcms-panel-attendance" style="display:none;">
+          <p style="font-size:0.85rem; color:#475569;">
+            Record per-advocate appearance certification. In accordance with Rule 4, fee vouchers require verified attendance proof.
+          </p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Hearing Date</th>
+                  <th>Court &amp; Matter</th>
+                  <th>Panel Advocate</th>
+                  <th>Attendance State</th>
+                  <th>Certified By</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>22-Oct-2026</td>
+                  <td>High Court | SCA/118/2026</td>
+                  <td>Adv. Meera Shah</td>
+                  <td><span class="card-status-pill" style="background:#dcfce7; color:#15803d;">PRESENT</span></td>
+                  <td>Legal Officer (DEMO)</td>
+                </tr>
+                <tr>
+                  <td>14-Oct-2026</td>
+                  <td>Civil Court | RCS/42/2026</td>
+                  <td>Adv. Rajesh Trivedi</td>
+                  <td><span class="card-status-pill" style="background:#fee2e2; color:#b91c1c;">ABSENT</span></td>
+                  <td>Court Steno (Verified)</td>
+                </tr>
+                <tr>
+                  <td>10-Oct-2026</td>
+                  <td>District Court | CMA/309/2026</td>
+                  <td>Adv. Dhaval Bhatt</td>
+                  <td><span class="card-status-pill" style="background:#e2e8f0; color:#475569;">NOT RECORDED</span></td>
+                  <td>Pending Officer Sign</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Panel 4: Budget Utilization -->
+        <div class="lcms-panel" id="lcms-panel-budget" style="display:none;">
+          <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom:1rem;">
+            <div class="stat-card" style="background:var(--color-bg-page); border:1px solid var(--color-border); border-radius:4px;">
+              <span class="stat-number" style="color:var(--color-primary); font-size:1.8rem;">₹1,00,000.00</span>
+              <span class="stat-label" style="color:var(--color-text-muted);">Allocated Budget FY 2026-27</span>
+            </div>
+            <div class="stat-card" style="background:var(--color-bg-page); border:1px solid var(--color-border); border-radius:4px;">
+              <span class="stat-number" style="color:var(--color-accent-green); font-size:1.8rem;">₹48,500.00</span>
+              <span class="stat-label" style="color:var(--color-text-muted);">Valid Paid Expenditure</span>
+            </div>
+            <div class="stat-card" style="background:var(--color-bg-page); border:1px solid var(--color-border); border-radius:4px;">
+              <span class="stat-number" style="color:var(--color-accent-saffron); font-size:1.8rem;">₹51,500.00</span>
+              <span class="stat-label" style="color:var(--color-text-muted);">Remaining Fiscal Headroom</span>
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:#475569;">Accounting Head: <code>2014 - Administration of Justice | 114 - Legal Advisers and Counsels</code></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary btn-modal-close">Close Console</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 5: PHOTO GALLERY LIGHTBOX
+       ========================================================================== -->
+  <div class="modal-backdrop" id="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="gallery-modal-title">Official Department Photo</h3>
+        <button type="button" class="modal-close-btn" aria-label="Close photo lightbox">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="gallery-modal-img" style="border-radius:4px; overflow:hidden; margin-bottom:1rem;"></div>
+        <div id="gallery-modal-caption"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary btn-modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

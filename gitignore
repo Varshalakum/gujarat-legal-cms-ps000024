@@ -1,0 +1,131 @@
+# =====================================================
+# BACKEND: Spring Boot / Maven / Hibernate (Java 21)
+# =====================================================
+backend/target/
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+HELP.md
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Gradle (in case you switch later)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Spring Boot local/secret config (keep application.properties committed)
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/application-dev.properties
+backend/src/main/resources/application-prod.properties
+backend/src/main/resources/application-secret*.properties
+application-local.yml
+application-prod.yml
+
+# Hibernate / DB local files
+*.mv.db
+*.trace.db
+*.db
+*.sqlite
+*.sqlite3
+hibernate.log
+*.sql.log
+
+# Uploaded files (court orders, fee vouchers)
+backend/uploads/
+uploads/
+
+# =====================================================
+# FRONTEND: React + Vite
+# =====================================================
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+dist/
+frontend/.vite/
+.vite/
+*.local
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.cache/
+
+# Package manager debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+
+# =====================================================
+# SECRETS / ENVIRONMENT
+# =====================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+secrets/
+
+# =====================================================
+# LOGS & TEMP
+# =====================================================
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# =====================================================
+# IDE / EDITOR
+# =====================================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache/
+bin/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# =====================================================
+# OS FILES
+# =====================================================
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db

@@ -1,0 +1,2205 @@
+﻿ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+ropss0ssl2i4ftdsuhutdtSusl    be
+h-niphuts4off-shppicSuoSy
+|sgth2oSysdhShytdtSus
+1utd
+p8Gvm>>>sdnls4mx>v.I,>swbk
+kAD>s>AIVsdnls38,,>3>V
+Government legal cases -> hearing schedule and outcomes -> advocate attendance -> advocate fee bills ->
+veri>cation -> multi-level approval -> payment ledger -> budget monitoring and expenditure reports.
+Implementation-ready functional speci>cation, workkow design, data model, AI outline,
+security controls, report de>nitions, acceptance tests and demo plan.
+-83xG>,>s38,>.8m
+nDmx>
+roblem ID
+S000024
+Version
+2.0 - complete revised blueprint
+repared
+13 October 2026
+rimary users
+Legal Department, bill processing o-cials, approval
+authorities, accounts/>nance users, advocates and
+management viewers
+Suggested stack
+React + Vite; Java 21 + Spring Boot; MySQL; Spring Security;
+JA/Hibernate; private document storage
+Document status
+Detailed MV proposal based on provided problem
+material; not an o-cial government-approved requirement
+or policy
+ropsal boedpsonthouidonSp0o2iuido0p0a ulo40didospuof tuoboed0p-uabp2ua2a0osptb2noboedidtaeplaeduan0piesptdob0pdridpuof tuop
+so2iudboedplae-ubidtaec
+1
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+-83xG>,>sOxI6>sD,6s.>D6I,Os.xm>V
+This blueprint revises the earlier MV rather than changing the problem. It preserves the source brief’s central
+workkow and strengthens coverage where a buildable prototype needs explicit rules: advocate attendance,
+budget planning, duplicate payment prevention, exact report de>nitions, con>gurable approval controls and
+testable acceptance criteria.
+g8Ls>8sI,>>.v.>>s.>/xI.>G>,>V
+fDR>m
+d>D,I,O
+g8Ls>8sIGvm>G>,>
+SOURCE
+Explicitly stated in the supplied
+S000024 problem material.
+Treat as required baseline for the
+prototype.
+ROOSED CONTROL
+A practical control added so the system
+can safely implement the baseline (for
+example, transaction-safe payment
+recording).
+Implement in the MV unless a real
+business rule conkicts; keep
+con>guration kexible.
+CONFIRM
+A rule the source does not settle (for
+example, exact approver levels,
+permitted partial payment or o-cial
+fee rates).
+Use clearly labelled demo defaults; do
+not present as Government of Gujarat
+policy.
+p8,>>,>V
+1. Executive summary and objective
+2. Source requirement traceability
+3. Scope and delivery boundary
+4. Stakeholders, roles and separation of duties
+5. End-to-end workkows
+6. Functional requirements and acceptance criteria
+7. Business rules and edge cases
+8. Screens and navigation
+9. Reporting, accounting and budget formulas
+10. Data model
+11. AI outline
+12. Architecture and security
+13. Noti>cations and integrations
+14. Demo dataset and judge walkthrough
+15. Test plan and de>nition of done
+16. Implementation roadmap
+17. Department decisions required before production
+Appendix A. Status dictionary
+Appendix B. Minimum demo checklist
+38v>sA8,>V>+
+The MV can demonstrate manual data entry, in-app reminders and a simulated/manual payment record. It must
+not claim live eCourts/court AIs, treasury/IFMS integration, actual bank transfer, SMS/email delivery or o-cial
+fee-rule validation unless each integration or rule has been con>rmed and tested.
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+;kstJ>3x>Iw>sVxGGD.+sD,6s8RB>3>Iw>
+;k;skAD>sIVsR>I,OsRxIm>
+A role-based web application for the Legal Department of the Government of Gujarat to maintain a shared
+record of government cases and their hearings, receive advocate fee claims, check supporting evidence, route
+claims through authorised approval stages, record payments and accounting references, monitor budget use,
+and generate traceable operational and >nancial reports.
+;kbsuA>s>L8s38,,>3>>6sL8.MV>.>DGV
+f>ODm03DV>sL8.MV>.>DG
+rI,D,3IDmsL8.MV>.>DG
+Case registry and advocate assignments
+Bill drafting/submission and document completeness
+Hearing schedule, outcome and date-change history
+Veri>cation checklist, duplicate screening and approval
+decisions
+Advocate attendance for each relevant hearing
+ayment register, corrections/reversals and outstanding
+balances
+Case timeline and reminders
+Budget allocation/utilisation and expenditure reporting
+;kQsp8.>sVx33>VVs38,6I>I8,
+A judge or stakeholder must be able to start with one demo case and trace every linked record in order: case ->
+advocate assignment -> hearing -> recorded/veri>ed attendance where applicable -> bill with evidence ->
+duplicate check -> veri>cation -> each con>gured approval stage -> payment entry -> accounting/budget impact
+-> court-wise and year-wise report -> audit timeline.
+;keskAD>sVx33>VVs68>Vs,8>sG>D,
+It does not mean an o-cial government system is integrated or approved for production.
+It does not mean that a similarity warning proves fraud.
+It does not mean an approved bill has been paid.
+It does not mean demo fee rates, SLAs, approval levels or budget rules are o-cial.
+It does not claim a percentage reduction in processing time unless measured in a real pilot.
+3
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+bks8x.3>s.>/xI.>G>,>s>.D3>DRImI>+
+The baseline below is derived from the S000024 section in the supplied “3 topics.pdf” (pages 14-21 in that >le)
+and the problem details shared in chat. Additions made for implementation completeness are explicitly
+identi>ed as proposed controls or enhancements.
+8x.3>s.>/xI.>G>,>s0s,>>6
+dnls38Gv8,>,>
+p8w>.DO>sI,swb
+u+v>
+Create/update government
+cases; store case number, court,
+type, department, status and
+advocate
+Case Registry + Assignments
+Unique internal ID; court
+reference kept separately;
+search/>lter; assignment
+history; full case timeline.
+SOURCE
+Track hearing date/time,
+responsible advocate,
+notes/outcome and next date
+Hearing Management
+Calendar/list, outcome, next-date
+validation, postponement
+reason, prior date-change
+history.
+SOURCE
+Notify concerned users before
+hearings
+Noti>cations
+Con>gurable in-app reminders;
+recipient and event history;
+optional external adapters.
+SOURCE
+Court-system/AI integration
+where available
+Integration boundary
+Manual entry works >rst;
+integration adapter only after
+approved AI/data-sharing
+access.
+SOURCE + CONFIRM
+Submit bills with bill
+number/date/amount/service
+period/documents
+Bill Management
+Required >elds, fee category,
+claim period and case link;
+hearing links by con>gured fee
+rule.
+SOURCE
+Check potential duplicate bills
+Duplicate bill checks
+Explainable candidate rules;
+authorised human disposition;
+no silent deletion or blanket
+same-amount rejection.
+SOURCE + ROOSED CONTROL
+Assign processing o-cials;
+record veri>cation >ndings;
+return for correction
+Veri>cation queue
+Checklist, evidence view, return
+reason, resubmission
+version/history.
+SOURCE
+Send veri>ed bill through
+required approval stages
+Approval workkow
+Con>gured
+stages/roles/delegations; state-
+transition checks; stage owner,
+age and decision history.
+SOURCE + CONFIRM
+Record payment
+reference/date/amount and
+accounting reference
+ayment + Accounting
+ayment register, approved-bill
+guard, remaining-balance logic,
+reference >elds and
+reconciliation.
+SOURCE
+Distinguish pending, approved-
+unpaid, partially paid if allowed,
+paid and rejected
+Workkow + settlement state
+Approval state and settlement
+state are separate; partial
+payments are con>gurable.
+SOURCE + CONFIRM
+Generate advocate-wise and
+case-wise reports
+Reports
+Totals tied to payments and bill
+workkow; drill-down to source
+records.
+SOURCE
+Generate court-wise and year-
+wise reports
+Reports
+Explicit court, calendar-year and
+>nancial-year >lters; date basis
+clearly labelled.
+SOURCE
+4
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+8x.3>s.>/xI.>G>,>s0s,>>6
+dnls38Gv8,>,>
+p8w>.DO>sI,swb
+u+v>
+Summarise expenditure for
+budget monitoring
+Budget lanning
+Budget allocation, actual paid
+spend, approved-unpaid
+liability, exposure and
+remaining headroom displayed
+separately.
+SOURCE + ROOSED DETAIL
+Roles include advocates, legal
+o-cers, processors, approvers,
+>nance, admin and
+management viewers
+Identity and Access
+Server-side role/department
+scope for every AI, document,
+export and report.
+SOURCE
+Audit history and accountability
+Audit Log
+Actor, role, timestamp, entity,
+before/after state where safe,
+reason and correlation/event ID.
+SOURCE
+Advocate attendance at hearing
+Attendance Tracking
+Explicit attendance record
+linked to each hearing and
+advocate, with recorder,
+veri>cation and evidence
+reference.
+ROOSED COVERAGE
+ENHANCEMENT
+revent duplicate payment
+entries separately from
+duplicate claims
+ayment Integrity
+Unique transaction/reference
+checks, idempotency and
+transaction-safe balance
+validation.
+ROOSED CONTROL
+oGv8.>D,>s6IV>I,3>I8,
+Attendance Tracking is added as a >rst-class feature because hearing outcome is not the same thing as whether a
+particular advocate attended. Budget lanning is made explicit because “expenditure for budget monitoring”
+needs clear budget-versus-paid-versus-unpaid de>nitions to be useful.
+5
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+Qks38v>sD,6s6>mIw>.+sR8x,6D.+
+Qk;so,3mx6>6sI,s>A>sdnl
+Authentication, active-user control, role-based access and department/portfolio scoping.
+Court, department, advocate, user and fee-category master data for the demo.
+Case registration, case search, case status, advocate assignment and assignment history.
+Hearing calendar, hearing outcome, next hearing date, postponement reason and date-change history.
+er-hearing advocate attendance records and veri>cation/evidence trail.
+Bill creation/submission, private supporting-document access, completeness checklist and candidate-duplicate
+warnings.
+Veri>cation and con>gurable multi-level approval, with return/reject reasons and resubmission history.
+Manual/simulated payment entry, payment register, balance calculation, duplicate payment safeguards and
+audited correction/reversal records.
+Accounting references, budget allocation/utilisation views, advocate/case/court/period reports and export where
+authorised.
+In-app noti>cations, upcoming hearing reminders, pending-stage age and con>gurable overdue escalation.
+Append-only application-level audit history and a repeatable synthetic demo dataset.
+QkbstJvmI3I>m+s8x>VI6>s>A>sRDV>mI,>sdnl
+Actual transfer of funds or a payment gateway; the prototype records an accounting/payment event only.
+Live integration with eCourts, a court data AI, treasury, IFMS, bank, SMS or email without approved access,
+credentials and tested connectors.
+Automated legal advice, case outcome prediction, AI approval decisions or an AI fraud verdict.
+roduction hosting, real personal/legal records, o-cial fee rates or production retention policy without
+department approval.
+A general ledger or double-entry accounting certi>cation unless that is speci>cally required by the department.
+QkQsp8,HOx.DRm>s6>G8s6>qDxm>V
+>>>I,O
+Dq>sv.8>8>+v>s6>qDxm>
+l.86x3>I8,s>.>D>G>,>
+Approval stages
+Veri>er -> Legal Approver -> Finance
+records payment (>nance is not an
+approval stage by default).
+Replace with the authorised department
+workkow and authority limits.
+artial payment
+Feature kag con>gurable; demo can
+allow partial payment and show
+remaining balance.
+Con>rm whether partial settlements are
+permitted.
+Fee rules
+Con>gurable fee categories; any demo
+rate labelled illustrative.
+Load only approved schedules and
+eWective dates.
+Hearing attendance
+resent / Absent / Not Recorded; optional
+excused/other category only after
+con>rmation.
+Con>rm how evidence and exceptions
+should be recorded.
+Reminder/SLA times
+Short demo values, visibly marked
+“sample con>guration”.
+Con>rm o-cial due times, holidays,
+pause and escalation rules.
+Financial year
+Default India FY convention: 1 April to 31
+March; con>gurable.
+Con>rm o-cial >nancial-year grouping
+and reporting basis.
+6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+eks>DM>A8m6>.V-s.8m>VsD,6sV>vD.D>I8,s8qs6x>I>V
+28m>
+hmm8L>6sD3>I8,VsTLI>AI,sDVVIO,>6sV38v>’
+p8,>.8mVs0s3D,,8>s68sR+s6>qDxm>
+Advocate
+View own pro>le and assigned
+cases/hearings; view own attendance
+history; submit bills/documents; track bill
+status; correct returned claim.
+Cannot see other advocates’ con>dential
+bills; assign cases; verify their own
+attendance as >nal authority; approve own
+bill; record payment.
+Legal o-cer / case o-cer
+Create/update cases; assign/reassign
+advocates if authorised; add hearing
+records; enter/validate attendance; view
+case timeline.
+Cannot perform >nal bill approval unless
+separately assigned; cannot rewrite audit
+history.
+Bill preparer / processing clerk
+Check bill completeness; route bill to
+veri>er; attach processing notes; run
+candidate duplicate checks.
+Cannot alter a submitted amount without
+controlled return/amendment; cannot
+bypass workkow.
+Veri>er
+Review documents, case/hearing/attendance
+evidence, fee category and duplicate
+matches; verify/forward or return with
+reason.
+Cannot approve beyond assigned stage;
+default separation from submitter; cannot
+mark paid.
+Approving authority (stage-based)
+Approve, reject or return only at the
+currently assigned stage; add required
+comments; view authority-limit queue.
+Cannot jump stages, approve a claim they
+submitted, or modify a prior decision
+silently.
+Accounts / >nance o-cer
+View approved claims; record payment
+reference/date/amount/mode and
+accounting reference; create
+correction/reversal entry where authorised.
+Cannot approve an unapproved bill or
+delete a posted payment; cannot exceed
+outstanding payable balance.
+Department head / senior viewer
+View authorised summaries, budget status,
+overdue queues and escalations; approve at
+a >nal stage if con>gured.
+Scope limited by department/portfolio;
+viewer is not automatically an approver.
+Administrator
+Manage users, roles,
+department/court/advocate master data, fee
+categories, workkow con>guration and
+sample data.
+Admin privileges do not automatically grant
+business approval rights. Sensitive actions
+are audited.
+Auditor / read-only viewer
+View authorised records, payment history,
+audit timeline and reports.
+No create, edit, submit, approve, reverse or
+payment actions.
+ek;sl>.GIVVI8,s>,q8.3>G>,>s.xm>V
+Enforce authorization on the backend for every read, write, attachment download, report, export and workkow
+action. Frontend button hiding is not security.
+An advocate can access only assigned cases and their own bills, documents and related attendance view.
+Case/bill/department ownership must be re-checked after ID parameters are supplied; never trust an ID sent by
+the browser.
+Block self-approval by default. Also separate submitter, veri>er and approver unless a formally approved policy
+explicitly permits a combination.
+Deactivated users cannot sign in, but existing audit entries remain attributed to the historical actor.
+Role changes, reassignment, delegation and workkow con>guration changes are themselves audit events.
+7
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+:kst,6U>8U>,6sL8.MC8LV
+:k;sdDV>>.s3DV>sD,6sDVVIO,G>,>
+1. An authorised case o-cer selects the department and court, then enters an internal case ID, court case reference,
+case type, subject/parties as permitted, >ling date if known, priority and status.
+2. The system validates required >elds and internal-ID uniqueness. Court reference uniqueness is scoped with
+court/department where required; it is not assumed globally unique.
+3. The o-cer assigns one or more active advocates if the con>rmed rules allow it. Each assignment records valid-
+from/valid-to, role if relevant, actor, timestamp and reason.
+4. The case detail page displays case metadata plus a chronological timeline of hearings, attendance, bills, decisions,
+payments and audit events visible to that user.
+:kbsg>D.I,OsD,6sD>>>,6D,3>
+1. An authorised user adds the date/time, court/venue, hearing type if con>gured, outcome/status, notes, optional
+document and next date.
+2. If the outcome is adjourned/postponed, require a reason category. A next date earlier than the hearing date is
+rejected; an unusual date can trigger a warning but is not silently rewritten.
+3. The system creates per-advocate attendance rows for the relevant hearing/assigned advocate(s). Each row has
+attendance status, entered-by actor, entry time, veri>cation state, optional evidence/source reference and
+correction history.
+4. Attendance can be Not Recorded until the authorised user records it. Do not infer attendance from a “completed”
+hearing or from a bill submission.
+5. If an attendance record is corrected after a related bill has been submitted/approved, retain prior value and reason;
+kag linked bill review where the changed fact aWects payable eligibility under con>gured rules.
+6. The calendar and case timeline show upcoming/past hearings. Noti>cations are generated according to con>gured
+lead time; cancelled hearings are excluded from upcoming counts.
+:kQs4ImmsVxRGIVVI8,sD,6sw>.IH3D>I8,
+1. The advocate (or other role if department policy requires) selects an eligible case and enters bill reference, claim
+date, service period, fee category, description and amount.
+2. The case link is mandatory. Hearing links are mandatory only for fee categories whose con>gured rule requires
+appearance-wise evidence; a bill may link to multiple hearings only if permitted.
+3. The system checks required >elds/documents and searches for potential duplicates. It displays matching >elds
+rather than labelling the claim as fraudulent.
+4. On submission, the bill receives a unique internal ID and timestamp. Amount edits are locked. A return-for-
+correction or controlled amendment creates a visible version/history.
+5. The veri>er compares claim amount, category/rules, linked hearing and attendance where applicable, supporting
+evidence and previous related bills; then veri>es/forwards or returns with a mandatory reason.
+:keshvv.8wDmsD,6sV>>>m>G>,>
+1. The approval engine creates the task for the current authorised stage and identi>es the owner, due time and
+pending age.
+2. Only a user with the con>gured role/assignment can decide on the current stage. Out-of-order decisions, self-
+approval and duplicate action submissions are rejected server-side.
+3. Approval authorises the amount; it does not record payment. Approval, payable amount and settlement state
+remain distinct.
+4. Finance records a payment against an approved bill using date, amount, transaction/reference, payment mode and
+accounting reference. The server checks the current balance inside a transaction.
+8
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+of
+28
+5. If partial payment is enabled, several payment entries can settle one bill. If disabled, only a permitted full-
+settlement action is accepted. The balance/status is derived from valid payment records.
+6. Correction or reversal never deletes the original payment; it creates a linked reversal/adjustment entry with
+reason, actor and timestamp.
+:k:s4x6O>>sD,6s.>v8.>I,O
+1. An authorised >nance/admin role sets an allocation for a >nancial year, department and approved budget
+dimension/head.
+2. The dashboard separately shows allocation, valid paid expenditure, approved-unpaid liability,
+submitted/unapproved claim exposure and remaining headroom under the selected budget basis.
+3. Reports provide advocate-wise, case-wise, court-wise, monthly, calendar-year and >nancial-year views. Every total
+is drillable to source payment/bill records and has a stated date basis.
+4. The case timeline and reports must reconcile: paid expenditure comes from valid payment ledger entries, not bill
+submission dates or approval status.
+Eksrx,3>I8,Dms.>/xI.>G>,>VsD,6sD33>v>D,3>s3.I>>.ID
+The IDs below are the build checklist. “ass” means the condition is demonstrated through the UI and veri>ed
+through the AI/database test path, not just displayed on a static mock screen.
+o-
+2>/xI.>G>,>
+h33>v>D,3>s3.I>>.I8,
+r2U ;
+Authentication
+Active user can log in; invalid credentials fail;
+deactivated user is denied; expired/invalid
+token is rejected on protected endpoints.
+r2U b
+Roles and department scope
+Each role sees only authorised data. Direct AI
+access to another advocate/department’s case,
+bill, attachment, report or export is denied
+server-side.
+r2U Q
+Master data
+Authorised admin maintains departments,
+courts, advocates and users. Inactive advocate
+cannot be assigned to a new case.
+r2U e
+Case registry
+Create/search/update a case with unique
+internal ID and court reference >elds; required-
+>eld errors cause no partial save.
+r2U :
+Advocate assignment history
+Assignment/reassignment stores prior/new
+advocate, eWective dates, reason, actor and
+time; prior history remains visible.
+r2U E
+Hearing management
+Create a hearing against a case;
+date/time/outcome/next date are shown. Invalid
+next date is rejected; postponement requires
+reason; date changes are auditable.
+r2U N
+Attendance tracking
+Each relevant hearing can have an attendance
+record per advocate. Status, recorder, time,
+veri>cation/evidence reference and correction
+history are visible.
+r2U (
+Attendance-to-bill linkage
+When a fee category requires appearance
+evidence, a bill cannot pass con>gured
+veri>cation without valid linked
+hearing/attendance evidence or authorised
+exception.
+r2U )
+Bill submission
+Eligible user submits a bill with unique internal
+ID, advocate, case, reference/date/period,
+category, amount and required documents;
+invalid claims are not submitted.
+9
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+10
+of
+28
+o-
+2>/xI.>G>,>
+h33>v>D,3>s3.I>>.I8,
+r2U;
+Document access and completeness
+Required >les are validated and privately
+stored; only authorised users can retrieve
+them; extension/MIME/size limits are enforced.
+r2U;;
+Duplicate bill detection
+System kags de>ned exact/near matches with
+reasons (reference, advocate, case,
+period/hearings, amount/date). It does not auto-
+delete or assume fraud.
+r2U;b
+Veri>cation and returns
+Veri>er can forward or return. Return requires
+a reason. Resubmission preserves prior
+versions, reasons, documents and timestamps.
+r2U;Q
+Approval workkow
+Only con>gured approver acts at current stage;
+mandatory stages cannot be skipped;
+rejection/return requires comment; self-
+approval is blocked by default.
+r2U;e
+ending ownership and SLA
+Every active stage has a current owner,
+entered-at time and con>gured due time;
+overdue status is calculated from these values
+and con>gured pause rules.
+r2U;:
+Separation of approval/payment
+Approved bill remains unpaid until valid
+payment entry exists. UI/AI display approval
+state separately from settlement state.
+r2U;E
+ayment recording
+Only authorised >nance role records a payment
+against an approved bill;
+reference/date/amount/mode persist; amount
+cannot exceed balance.
+r2U;N
+Duplicate payment prevention
+Repeated payment reference or
+retry/idempotency key is safely detected;
+concurrent attempts cannot overpay the
+remaining balance.
+r2U;(
+ayment correction/reversal
+osted payment is not silently deleted. A
+permitted reversal/adjustment records reason,
+actor, date and link to original payment; report
+totals reverse correctly.
+r2U;)
+Accounting references
+ayment can include the con>gured accounting
+voucher/head/reference and >nancial year;
+prototype labels manual/entered values
+accurately.
+r2Ub
+Budget planning
+Authorised user records allocation by
+year/department/con>gured budget dimension;
+allocation updates are audited and over-
+commitment warnings are shown.
+r2Ub;
+Budget utilisation
+Dashboard separates valid paid expenditure,
+approved-unpaid balance and unapproved
+claim exposure; formula/date basis is visible
+and con>gurable.
+r2Ubb
+Core reports
+Advocate-wise, case-wise, court-wise, monthly,
+calendar-year and >nancial-year reports >lter
+within permissions and drill down to source
+records.
+r2UbQ
+Hearing/attendance reports
+Upcoming/past/cancelled hearings and
+recorded attendance by
+advocate/case/court/date are >lterable. Not
+Recorded is distinct from Absent.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+11
+of
+28
+o-
+2>/xI.>G>,>
+h33>v>D,3>s3.I>>.I8,
+r2Ube
+Noti>cations
+Upcoming hearings, new bill tasks,
+returns/decisions and overdue stages produce
+in-app noti>cations with related ID, recipient,
+timestamp and read status.
+r2Ub:
+Escalation
+Overdue escalation noti>es con>gured senior
+role and logs event; it never auto-approves,
+auto-rejects or alters bill status.
+r2UbE
+Audit history
+Important actions create append-only audit
+events including action, actor, role, timestamp,
+entity ID and reason/decision where applicable.
+r2UbN
+Search/>lter/export
+Search and >lters work across allowed
+case/bill/advocate/court/status/date/FY
+dimensions; export applies same access
+controls and >lters.
+r2Ub(
+Con>guration changes
+Fee categories/rules, workkow stages, SLA
+values, budget dimensions and partial-payment
+kag are versioned/audited; impact on in-kight
+claims is explicit.
+r2Ub)
+Integration boundary
+Manual/demo records are visibly labelled as
+such. External connectors are
+disabled/unavailable until con>gured and
+tested; no fake “live” status is shown.
+r2UQ
+Reconciliation and reliability
+ayment sums, approved-unpaid balances,
+budget widgets and reports match the source
+ledger exactly to paise; failed transactions leave
+totals unchanged.
+2>m>DV>sOD>>
+Before calling the MV complete, FR-01 through FR-30 must pass their applicable demo/test conditions. For a
+smaller >rst sprint, build the case -> hearing/attendance -> bill -> verify/approve -> payment -> report path >rst,
+but do not describe unbuilt modules as implemented.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+12
+of
+28
+Nks4xVI,>VVs.xm>VsD,6s>6O>s3DV>V
+2xm>
+tJv>3>>6sR>ADwI8x.
+BR-01 - Stable identi>ers
+Use internal IDs for cases, hearings, bills and payment entries. Store
+court case reference, advocate invoice reference and payment
+transaction reference as separate business >elds.
+BR-02 - Case and hearing linkage
+Every bill links to a case. Hearing links are required based on the
+con>gured fee category/rule, not universally hard-coded.
+BR-03 - Attendance is separate
+Hearing outcome and advocate attendance are diWerent facts. A
+completed hearing does not imply every assigned advocate
+attended. Not Recorded is not equivalent to Absent.
+BR-04 - Money precision
+Use >xed decimal money types such as DECIMAL(14,2) and INR
+formatting. Never use binary koating-point for accounting
+calculations.
+BR-05 - Return vs reject
+Return means the claimant can correct/resubmit with history
+preserved. Reject closes the current claim; if a new claim/version is
+permitted, its relationship must be recorded.
+BR-06 - Duplicate bill candidates
+Compare advocate, case, bill reference (normalised), service
+period/hearing links, amount and submission date. Show which
+>elds match. Similar amount alone is not proof of duplication.
+BR-07 - Duplicate payment is separate
+Check unique payment reference/transaction key plus bill, amount
+and event retry. A database constraint/idempotency key and
+transactional balance lock protect against repeated submits and
+concurrency.
+BR-08 - Submitted amount lock
+After submission, amount cannot be silently edited. Use
+return/resubmit or a controlled amendment with reason and prior-
+version record.
+BR-09 - Approval/payment separation
+Approval state represents authorisation; settlement status is derived
+from approved payable amount and valid payment/reversal entries.
+BR-10 - No overpayment
+Valid net payments cannot exceed approved payable amount.
+Balance check and payment insert occur atomically inside a
+database transaction.
+BR-11 - No silent deletion
+ayment corrections/reversals, hearing edits and bill amendments
+are represented as new linked events. Original history remains
+available.
+BR-12 - No self-approval
+Default block if submitter approves own bill; also default separate
+veri>er and approver. If department policy allows exceptions,
+encode them explicitly and audit the exception.
+BR-13 - Stage enforcement
+The server checks the current workkow stage, stage owner, actor
+authority, previous decision and record version. A frontend status
+>eld cannot jump a bill to Approved.
+BR-14 - Hearing chronology
+A next hearing date cannot precede the current hearing date.
+Rescheduling preserves the old date, reason, actor and timestamp.
+BR-15 - Financial-year rules
+Use con>gurable FY boundaries and show whether a report is
+grouped by payment date, bill/service period or approval date. Do
+not mix date bases in one total.
+BR-16 - Budget formula disclosure
+aid expenditure and approved-unpaid liability are diWerent
+measures. Whether unapproved submitted claims reserve budget
+must be con>gurable and con>rmed.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+13
+of
+28
+2xm>
+tJv>3>>6sR>ADwI8x.
+BR-17 - Audit retention
+Business users cannot edit/delete audit events. Retention duration,
+archival and deletion exceptions require department approval.
+BR-18 - File security
+Validate size, extension and MIME; use generated storage keys;
+store outside public web root; authorise every download; do not
+trust original >lenames or public URLs.
+BR-19 - SLA clock
+Store timestamps consistently (UTC is recommended); render in
+Asia/Kolkata. ause/holiday/returned-to-claimant rules and
+business-day calendars must be con>gured.
+BR-20 - Honest integration status
+Manual court status and manually entered payment details must be
+labelled as manually entered. A recorded payment is not bank
+con>rmation.
+BR-21 - Case reassignment
+Advocate changes must not erase historical access/audit records.
+New access follows valid assignment dates; prior case records
+remain restricted by policy.
+BR-22 - Duplicate review
+ossible duplicate stays visible in a queue until an authorised user
+records the disposition and reason. Do not label a candidate as
+fraud automatically.
+(ks3.>>,VsD,6s,DwIOD>I8,
+3.>>,
+dDI,s38,>>,>V0D3>I8,V
+nIVIRImI>+
+Login
+Username/email, password, validation errors,
+sign-in.
+All active users
+Role dashboard
+Upcoming hearings, attendance not recorded,
+bills awaiting veri>cation/approval, overdue
+stages, approved-unpaid balance, paid
+expenditure and budget alerts.
+All roles, data scoped
+Case list/detail
+Search/>lter, case metadata, advocate
+assignment timeline, linked
+hearings/attendance, bills, decisions, payments
+and documents.
+O-cers/senior roles; advocate sees assigned
+cases only
+Advocate/court/user masters
+ro>les, active status, department/portfolio,
+role mapping.
+Admin; selected read-only >elds by others
+Hearing calendar/list
+Upcoming/past hearings, court, case reference,
+outcome, next date, reschedule history and
+reminder state.
+Authorised advocates/o-cers
+Hearing detail / attendance
+er-advocate resent/Absent/Not Recorded,
+recorder, veri>cation, evidence reference and
+correction history.
+Legal o-cer; advocates get permitted read-only
+view / challenge workkow if con>gured
+My Bills / Bill list
+Bill ID, advocate, case, claimed/approved/paid
+amounts, current stage owner, status, pending
+age, period >lters.
+Advocate own; o-cers scoped records
+Submit / amend bill
+Case, fee category, bill reference/date, claim
+period, amount, hearing links if needed,
+document checklist and duplicate warning.
+Authorised claimant
+Bill review packet
+Case/advocate, hearing/attendance evidence,
+documents, fee rule, previous candidate
+matches, veri>er checklist and action history.
+Veri>er/approver/>nance per permission
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+14
+of
+28
+3.>>,
+dDI,s38,>>,>V0D3>I8,V
+nIVIRImI>+
+Approval inbox
+Current stage, assigned owner, due date, stage
+age, approve/return/reject with mandatory
+reason rules.
+Assigned approvers
+ayment register
+Approved balance, payment entries,
+reference/date/amount/mode, reversal history,
+accounting reference.
+Finance; permitted read-only roles
+Budget setup and budget dashboard
+Financial year, department, budget
+dimension/head, allocation revisions, paid
+spend, approved-unpaid, exposure and
+warnings.
+Authorised >nance/admin; management read-
+only
+Reports and exports
+Filters; advocate/case/court/month/calendar-
+year/FY/department; spend vs liability;
+hearing/attendance summaries; export.
+Authorised, scoped
+Noti>cations
+Recipient, event, linked case/bill/hearing, due
+date, read state and delivery/attempt status
+where supported.
+er-recipient
+Audit history
+Action, actor, role, timestamp, entity, reason,
+previous/new status; >lter and export if
+authorised.
+Authorised senior/auditor/admin
+Con>guration
+Fee categories/rules, approval stages/authority
+limits, SLA/lead times, partial-payment kag,
+budget dimensions and report settings.
+Admin/con>guration authority; changes
+audited
+(k;scos.xm>V
+Show the current stage, current owner and waiting time near the top of a bill page.
+Use text status labels, not colour alone. Include keyboard-accessible actions and >eld-speci>c validation messages.
+Show claimed amount, approved payable amount, amount paid and outstanding balance as separate >gures.
+Every report includes applied >lters, amount/date basis, currency and >nancial year where relevant.
+Use visibly marked synthetic demo data, not realistic-looking invented government data without a DEMO label.
+)ks2>v8.>I,O-sD338x,>I,OsD,6sRx6O>>sq8.GxmDV
+)k;s2>/xI.>6s.>v8.>V
+2>v8.>
+d>DVx.>Vs0s38mxG,V
+rIm>>.V
+p8,>.8mV
+Case register
+Case number, court, department,
+advocate, status, priority, >ling
+date
+Court, department, case status,
+advocate, year
+Counts + drill-down list
+Hearing schedule
+Upcoming/past/cancelled hearings,
+next date, postponement reasons
+Date range, court, case, advocate,
+outcome
+Cancelled events excluded from
+upcoming count
+Advocate attendance
+resent/Absent/Not Recorded by
+hearing, advocate, court and date
+Advocate, case, court, date range,
+attendance status
+Descriptive operational report; no
+performance score by default
+Bill status register
+Claimed amount, approved
+amount, current stage/owner, age,
+return/reject reason
+Status, stage, advocate, case, court,
+department, claim period
+Count bill IDs, not workkow
+history rows
+Advocate-wise spend
+Valid paid amount; approved-
+unpaid balance; claims under
+review
+Advocate, payment date range or
+service period
+Always label date basis and
+separate categories
+Case-wise expenditure
+ayments and related bills per
+case
+Case, court, year/FY, department
+Link totals to payment records
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+15
+of
+28
+2>v8.>
+d>DVx.>Vs0s38mxG,V
+rIm>>.V
+p8,>.8mV
+Court-wise expenditure
+aid spend and approved-unpaid
+liability by court
+Court, date range, calendar
+year/FY, department
+Explicitly required view
+Year-wise / FY expenditure
+Monthly trend and annual/FY
+totals
+Calendar year and con>gurable FY
+selected independently
+Do not mix calendar year with FY
+ayment register / reconciliation
+ayment reference, payment date,
+amount, mode, reversal,
+accounting reference
+ayment date, bill, advocate, case,
+court, FY
+Reported amount equals net valid
+ledger entries
+Budget utilisation
+Allocation, paid expenditure,
+approved-unpaid liability,
+exposure, headroom
+FY, department and con>gured
+budget dimensions
+De>nition of “used” is disclosed
+Approval bottlenecks
+Average and median stage
+duration; overdue count by stage
+Date range, stage, department,
+approver
+Show sample size and SLA rule
+used
+otential duplicates
+Candidate links, matched
+attributes, review disposition
+Status, advocate, bill period, date
+range
+Warning is not a fraud >nding
+)kbsrI,D,3IDms6>H,I>I8,V
+d>>.I3
+->H,I>I8,
+-IVvmD+0wDmI6D>I8,s.xm>
+Claimed amount
+Amount requested by claimant on the bill.
+Not treated as approved liability or paid
+expenditure.
+Approved payable amount
+Amount authorised by >nal con>gured
+approval decision.
+May diWer from claim amount; adjustment
+requires decision/audit history.
+Valid net payment
+osted payment entries less linked valid
+reversals/adjustments for the selected basis.
+Use payment date for cash-paid reporting
+unless the department de>nes another
+approved basis.
+Approved-unpaid balance
+max(0, approved payable amount - valid net
+payments allocated to that bill).
+Only approved payable amount is used;
+rejected/withdrawn bills excluded.
+Under-review claim exposure
+Submitted/veri>ed but not >nally approved
+claims, reported separately.
+Not described as payable liability unless
+authorised accounting policy says so.
+Actual paid expenditure
+Sum of valid net payment entries within the
+selected payment-date range.
+Must reconcile to payment register;
+recorded data is not proof of bank
+settlement.
+Budget allocation
+Approved allocation for selected
+FY/department/budget dimension.
+Allocation changes versioned and audited.
+Budget headroom (demo default)
+Allocation - paid expenditure - approved-
+unpaid amount reserved by con>gured
+policy.
+State the selected reservation policy; avoid
+negative values being hidden—show
+overrun.
+Budget utilisation % (demo default)
+(paid expenditure + approved-unpaid
+reserved amount) / allocation x 100.
+If allocation is zero, show N/A/over-
+allocation warning, not divide-by-zero.
+Stage age
+Current time - entered_current_stage_at,
+adjusted only by agreed pause/holiday rules.
+Show SLA duration and whether paused
+clocks are con>gured.
+Bill turnaround
+Final approval timestamp - >rst submission
+timestamp.
+Track time to full payment separately; do
+not conkate the two.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+16
+of
+28
+4x6O>>s.xm>s>AD>sGxV>s.>GDI,swIVIRm>
+For the hackathon prototype, show paid spend and approved-unpaid amounts separately, and show unapproved
+claims as exposure. Do not silently merge them into one “expense” >gure. The department must con>rm whether
+approved-unpaid amounts and/or submitted claims reserve budget before production use.
+; ks-D>DsG86>msD,6s6D>DRDV>s6>VIO,
+Use a relational schema with foreign keys, normalised master data, database constraints and service-layer
+validation. The table names below are a recommended starting model; >nal >elds depend on the approved
+process. Money uses DECIMAL, not FLOAT/DOUBLE.
+uDRm>0>,>I>+
+p8.>sH>m6VsTImmxV>.D>Iw>’
+lx.v8V>s0s38,V>.DI,>
+departments
+id, code, name, active
+Department/o-ce scope for cases, approvals and
+budget.
+users
+id, name, login, password_hash, department_id,
+active, created_at
+Login identity; no plaintext passwords.
+roles / permissions / user_roles
+role_id, code; permission_code; user_id, role_id
+Supports explicit action permissions and users with
+more than one authorised role if permitted.
+advocates
+id, user_id, panel/registration ref, contact, active
+Recognised advocate pro>le; collect only necessary
+personal information.
+courts
+id, name, level/type, location, active
+Court directory; demo records labelled synthetic.
+cases
+id, internal_case_no, court_id, court_case_ref,
+department_id, case_type, subject, status, priority,
+>ling_date
+rimary legal matter; unique internal ID and
+properly scoped court reference.
+case_advocate_assignments
+id, case_id, advocate_id, role, valid_from, valid_to,
+reason, changed_by
+History of advocate assignments and multiple-
+advocate support where permitted.
+hearings
+id, case_id, scheduled_at, court_id, outcome,
+next_hearing_at, postponement_reason, notes,
+entered_by
+One case to many hearings; prior schedule history
+retained.
+hearing_attendance
+id, hearing_id, advocate_id, status, entered_by,
+entered_at, veri>cation_status, source_ref, notes
+Separate record per advocate per hearing; prevent
+duplicates with a suitable unique constraint.
+hearing_change_events
+id, hearing_id, previous_date, new_date, reason,
+actor_id, created_at
+Auditable hearing reschedule/correction history.
+fee_categories / fee_rules
+id, code, label, active; rule_type, rate,
+eWective_from/to, requires_hearing,
+required_documents
+Con>gurable rule structure; rates are demo-only
+until o-cially con>rmed.
+bills
+id, bill_no, advocate_id, case_id, bill_reference,
+claim_date, period_start/end, category_id,
+claimed_amount, approved_amount, status,
+submitted_at
+Claim, current workkow state and amounts.
+bill_hearings
+bill_id, hearing_id
+Many-to-many mapping when a single claim covers
+multiple appearances and policy permits it.
+bill_versions
+id, bill_id, version_no, amount, period, changes,
+reason, actor_id, created_at
+rior submitted details preserved for
+return/resubmission/amendment.
+bill_documents
+id, bill_id, storage_key, original_>lename,
+mime_type, size_bytes, document_type,
+uploaded_by, uploaded_at
+Metadata for private documents; access checked at
+download time.
+veri>cation_checks
+id, bill_id, veri>er_id, check_code, result, comment,
+created_at
+Evidence/fee/attendance/duplicate checks and
+>ndings.
+workkow_de>nitions / workkow_stages
+id, workkow_code, version, active; stage_order,
+role_code, due_hours, authority_limit
+Con>gurable approval sequence and due rules;
+exact hierarchy con>rmed with department.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+17
+of
+28
+uDRm>0>,>I>+
+p8.>sH>m6VsTImmxV>.D>Iw>’
+lx.v8V>s0s38,V>.DI,>
+workkow_tasks / approval_actions
+task_id, bill_id, stage_id, owner_id, entered_at,
+due_at, status; actor_id, decision, comment,
+created_at
+Current work owner plus immutable history of
+approve/return/reject decisions.
+payments
+id, bill_id, payment_reference, idempotency_key,
+amount, payment_date, mode, status, created_by
+Recorded payment event; unique references/key
+where business rules allow.
+payment_adjustments
+id, original_payment_id, adjustment_type, amount,
+reason, actor_id, created_at
+Correction/reversal event linked to original
+payment; do not delete posted payment.
+accounting_entries
+id, payment_id, voucher_reference,
+accounting_head, >nancial_year, entered_by,
+entered_at
+Accounting references and >nancial classi>cation;
+not a claimed treasury integration.
+budget_allocations
+id, >nancial_year, department_id,
+budget_dimension, allocated_amount, version,
+approved_by, created_at
+Allocation and its amendment history.
+noti>cations
+id, recipient_id, event_type, entity_type, entity_id,
+created_at, read_at, channel, delivery_status
+In-app alert history; external channel delivery only
+if actually con>gured.
+audit_events
+id, actor_id, role_code, action, entity_type, entity_id,
+before_after_summary, reason, created_at,
+request_id
+Append-only trace of critical business actions;
+avoid sensitive >le contents/secrets.
+integration_events (optional adapter)
+id, provider, entity_id, request_id, status,
+attempted_at, response_summary
+Only when a real approved connector is
+implemented; redact credentials/II from logs.
+; k;sF>+s.>mD>I8,VAIvV
+One case can have many hearing records and, if allowed, multiple time-bounded advocate assignments.
+One hearing can have attendance rows for each relevant advocate; attendance rows are not the hearing outcome
+itself.
+A bill belongs to one advocate and one case. It may link to one or more hearings only when the selected fee rule
+allows it.
+A bill can have many documents, veri>cation checks, workkow tasks/decisions, payment entries and payment
+adjustments.
+A department can have many budget allocations by >nancial year and con>gured budget dimension.
+Reports aggregate payment ledger rows with reversal/adjustment logic; do not use workkow-history rows as
+spend rows.
+;;kshlos8x>mI,>
+These endpoints are an implementation starting point, not o-cial required endpoints. Controllers should call
+service-layer business rules; the backend must derive the actor from the authenticated session/token, not trust a
+user ID in request payloads.
+d>>A86
+t,6v8I,>
+lx.v8V>
+28m>0D33>VVsOD>>
+OST
+/api/auth/login
+Authenticate user
+All active users
+GET/OST
+/api/cases
+Search cases / create case
+Scoped o-cer roles
+GET/ATCH
+/api/cases/{id}
+Read/update permitted case >elds
+Scope + action permission
+OST
+/api/cases/{id}/advocate-
+assignments
+Assign/reassign advocate
+Authorised case o-cer
+GET/OST
+/api/cases/{id}/hearings
+List / add hearing
+Authorised case users
+ATCH
+/api/hearings/{id}
+Update hearing through audited
+change kow
+Authorised legal o-cer
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+18
+of
+28
+d>>A86
+t,6v8I,>
+lx.v8V>
+28m>0D33>VVsOD>>
+OST
+/api/hearings/{id}/attendance
+Record advocate attendance
+Authorised legal o-cer/recorder
+ATCH
+/api/attendance/{id}/verify
+Validate/correct attendance with
+reason
+Con>gured validator
+OST
+/api/bills
+Create/submit a bill
+ermitted claimant
+GET
+/api/bills/{id}
+Read bill and permitted history
+Scope-based
+OST
+/api/bills/{id}/documents
+Upload evidence
+ermitted claimant/o-cer
+OST
+/api/bills/{id}/duplicate-check
+Run candidate duplicate checks
+Service/veri>er
+OST
+/api/bills/{id}/verify
+Record veri>cation
+decision/checklist
+Assigned veri>er
+OST
+/api/bills/{id}/workkow-actions
+Approve/return/reject current
+stage
+Assigned current approver
+GET
+/api/approvals/inbox
+Current user’s stage tasks
+Assigned approver
+OST
+/api/bills/{id}/payments
+Record payment with
+idempotency/reference
+Finance role
+OST
+/api/payments/{id}/adjustments
+Record permitted
+adjustment/reversal
+Authorised >nance/supervisor
+GET
+/api/reports/expenditure
+Spend/report data with >lters
+Scoped reporting permission
+GET/OST
+/api/budgets/allocations
+View/create allocation revisions
+Authorised >nance/admin
+GET
+/api/reports/budget-utilisation
+Budget and liability measures
+Scoped reporting permission
+GET
+/api/noti>cations
+Recipient’s noti>cation inbox
+Authenticated user
+GET
+/api/audit-events
+Search permitted audit history
+Authorised auditor/senior/admin
+;;k;shlos.>Vv8,V>sD,6s>..8.s38,w>,>I8,V
+p86>
+d>D,I,O
+tJDGvm>
+400
+Invalid >eld or malformed request
+Missing bill period or invalid date format.
+401
+Unauthenticated / invalid token
+Expired or absent token on protected
+endpoint.
+403
+Authenticated but not authorised
+Advocate requests another advocate’s
+bill.
+404
+Missing or intentionally not visible
+Record is absent or outside caller’s
+visibility, according to policy.
+409
+Duplicate/conkict/state transition
+Out-of-order approval, duplicate
+reference or stale version.
+413
+Upload exceeds size limit
+Supporting document too large.
+422
+Business-rule violation
+ayment exceeds balance or required
+hearing evidence is absent.
+500
+Unexpected error with correlation ID
+Return safe error; do not expose stack
+trace/secrets.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+19
+of
+28
+u.D,VD3>I8,sR8x,6D.I>V
+Submission should save bill state, documents metadata, task and audit event atomically. Approval should save
+decision, task transition, next task, audit event and noti>cation event atomically. ayment and balance update
+must be atomic. External email/SMS calls should not be part of the critical database transaction.
+;bksh.3AI>>3>x.>sD,6sV>3x.I>+
+;bk;s2>38GG>,6>6sdnlsD.3AI>>3>x.>
+fD+>.
+2>38GG>,6>6sIGvm>G>,>D>I8,
+2>Vv8,VIRImI>I>V
+Web frontend
+React + Vite; React Router; form
+validation; Recharts for charts
+Role-aware screens, queues, forms,
+calendar, timelines and reports.
+REST AI
+Java 21 + Spring Boot modular monolith
+Business rules, state validation,
+workkow, attendance/budget/payment
+logic and reports.
+Authentication/authorisation
+Spring Security + JWT; BCrypt or Argon2
+password hashing
+Authentication, roles, department scope,
+token lifecycle and backend permission
+checks.
+Data access
+Spring Data JA / Hibernate + MySQL
+Relational records, foreign keys, unique
+constraints, indexes and transactions.
+Document storage
+rivate local folder through storage
+service for demo; object storage later
+No public static >le paths; every
+download authorised.
+Scheduled work
+Spring Scheduler for prototype
+Upcoming hearing reminders, stage-age
+checks and con>gured escalation.
+Audit/observability
+audit_events table + structured
+application logs
+Business traceability, troubleshooting
+and correlation IDs.
+;bkbs>3x.I>+sGI,IGxGV
+Use HTTS in deployment; keep secrets in environment variables/secret manager and never commit them to
+source control.
+Never store plaintext passwords or log passwords, JWTs, document contents or sensitive payment references
+unnecessarily.
+Check object ownership and department scope on every read, update, delete/correction, document download,
+report and export endpoint.
+Validate >le extension, MIME type and size; generate server-side storage keys; prevent path traversal; store >les
+outside the public web root.
+Use database transactions and locking/version checks for approval transitions and payments to prevent races and
+overpayments.
+Keep business audit events append-only at application level; restrict direct database access and backup access.
+Use parameterised ORM/query methods, safe error responses, output sanitisation and CSRF/CORS settings
+appropriate to the selected auth model.
+Support database migrations through Flyway or Liquibase and predictable synthetic seed/reset data.
+Before production, de>ne backup/restore, access review, incident response, records retention, privacy, hosting
+location and security testing with the department.
+
+
+
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+20
+of
+28
+;bkQs-D>DsI,>>O.I>+s38,V>.DI,>V
+Unique internal case number; unique internal bill number; scoped uniqueness for court case references as
+approved.
+Suitable uniqueness on hearing_id + advocate_id for one attendance record per advocate per hearing unless
+exception model requires versions.
+Unique or de-duplicated payment transaction reference according to provider/reference semantics, and an
+idempotency key on payment submission.
+Foreign keys from bills to cases/advocates, payments to bills, payment adjustments to original payment, and
+budget rows to year/department dimensions.
+Use optimistic locking or row locking on bills/payment balances to prevent stale decisions and concurrent
+overpayment.
+;QksS8>IH3D>I8,VsD,6sI,>>O.D>I8,V
+;Qk;sS8>IH3D>I8,s>w>,>sGD>.IJ
+tw>,>
+2>3IvI>,>
+dI,IGxGs38,>>,>
+tJv>3>>6sR>ADwI8x.
+Hearing created/rescheduled
+Assigned advocate(s) and relevant
+legal o-cer
+Case, court, date/time, new date if
+rescheduled
+In-app alert; keep old date/change
+history.
+Upcoming hearing
+Assigned advocate(s)/concerned
+o-cer
+Case, court, hearing time,
+reminder window
+Generated at con>gured lead
+times; cancelled event excluded.
+Bill submitted
+Assigned veri>cation inbox
+Bill ID, case, advocate, claimed
+amount, submit time
+Create queue item and noti>cation
+in same reliable event kow.
+Bill returned
+Submitting claimant
+Bill ID, missing/correction details,
+reason
+Reason visible;
+correction/resubmission action
+available.
+Bill forwarded/approved/rejected
+Next stage/current permitted
+users/claimant as con>gured
+Decision, amount/status, actor,
+time, next owner if any
+reserve decision in the timeline.
+Overdue stage
+Current owner and con>gured
+supervisor
+Bill ID, stage, owner, age, due time
+Escalation logged; no automatic
+approval/rejection.
+ossible duplicate
+Veri>er/authorised review queue
+Candidate bill IDs and exact
+matched >elds
+Human disposition required; do
+not call it fraud.
+Budget threshold/overrun
+Authorised >nance/senior viewers
+FY/dimension, allocation, paid,
+approved-unpaid, exposure
+Threshold con>gurable; the >gures
+must show their de>nition.
+;QkbsS8>IH3D>I8,s6>mIw>.+sD,6sAIV>8.+
+Each in-app event stores recipient, event type, related entity ID, creation time and read time.
+If external email/SMS is later con>gured, keep send-attempt and provider delivery status separate from in-app
+read state.
+Do not state “delivered” unless a provider response or veri>able receipt supports that status.
+Reminder lead times, quiet hours, business day calendar, SLA pause rules and escalation chain remain
+con>gurable until con>rmed.
+;QkQso,>>O.D>I8,sV>.D>>O+
+o,>>O.D>I8,
+dnlsG86>
+l.86x3>I8,sOD>>
+Court/eCourts data
+Manual case/court/hearing entry; visibly
+label manual veri>cation.
+Approved AI, access permission, data-
+sharing agreement, mapping and test
+environment.
+
+
+
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+21
+of
+28
+o,>>O.D>I8,
+dnlsG86>
+l.86x3>I8,sOD>>
+Treasury / IFMS
+Manual accounting reference only; no
+transfer initiated.
+Authorised interface, credentials, security
+review, accounting mapping and
+reconciliation design.
+Bank/payment provider
+Manual/simulated payment record for
+prototype.
+Approved provider kow, veri>ed
+success/failure callbacks, idempotency and
+reconciliation process.
+Email/SMS
+In-app noti>cations only by default.
+rovider credentials, consent/policy,
+delivery status, failure handling and
+monitoring.
+Document/object storage
+rivate local storage abstraction for demo.
+Approved storage, backup, retention, access
+logging and availability plan.
+;eks->G8s6D>DV>>sD,6sBx6O>UqD3I,OsLDmM>A.8xOA
+->G8smDR>ms.>/xI.>6
+All names, case numbers, courts, attendance, bill amounts, budget allocations and payment references shown in a
+demo must be clearly labelled >ctional/synthetic. Never pass demo fee rates or workkow times oW as o-cial
+policy.
+;ek;sxOO>V>>6sV+,>A>>I3s.>38.6V
+2>38.6
+tJDGvm>sTH3>I8,Dm’
+kAD>sI>s6>G8,V>.D>>V
+Department
+Legal Administration - DEMO
+Department scope and dashboard >lters.
+Court
+Gujarat High Court - DEMO label only
+Court-wise reports with manual data
+boundary.
+Advocate
+Adv. Meera Shah - DEMO
+Advocate sign-in and assigned-case access.
+Case
+CASE-DEMO-2026-0007 / DEMO-HC-118/2026
+Case reference separate from internal ID.
+Hearing
+HEAR-DEMO-0009; 22-Oct-2026, 11:00 IST;
+Adjourned; next date 05-Nov-2026
+Hearing history, postponement reason and
+reminder.
+Attendance
+Advocate status: resent; entered by Legal
+O-cer DEMO; veri>ed
+Separate attendance record and bill
+evidence.
+Bill A
+BILL-DEMO-0012; reference ADV-INV-1042;
+INR 2,500.00
+Main bill submitted with document and
+linked hearing.
+Bill B
+BILL-DEMO-0013; similar
+advocate/case/service period/amount
+Candidate duplicate warning with matched
+>elds.
+Budget allocation
+FY 2026-27; department DEMO; INR
+100,000.00
+Allocation, spend and outstanding balance.
+ayment
+AY-DEMO-0008; INR 1,500.00; DEMO-
+TXN-7781
+artial payment if demo policy enables it;
+outstanding INR 1,000.00.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+22
+of
+28
+;ekbstIOA>UGI,x>>s6>G8svD>A
+uIG>
+h3>I8,
+jx6O>sVA8xm6sV>>
+0:00-0:40
+Log in as legal o-cer and create/open demo
+case.
+Case ID, court reference, department and
+advocate assignment.
+0:40-1:25
+Add hearing with outcome/next date and
+postponement reason where relevant.
+Calendar entry, timeline and reminder
+event.
+1:25-2:00
+Record per-advocate attendance with actor
+and veri>cation.
+Attendance is separate from hearing result.
+2:00-2:45
+Submit Bill A with supporting document and
+relevant hearing link.
+Required->eld/doc checks and unique
+internal ID.
+2:45-3:20
+Submit similar Bill B.
+Explainable candidate duplicate, no silent
+auto-rejection.
+3:20-4:10
+Veri>er returns Bill A with reason; claimant
+corrects/resubmits.
+Reason, revised version and history remain
+visible.
+4:10-5:00
+Approver decides at the con>gured stage;
+try an unauthorised/self-approval negative
+test.
+Valid action accepted; forbidden state
+transition denied.
+5:00-5:45
+Finance records payment and show the
+remaining balance.
+Approval is not payment; payment
+reference and balance update.
+5:45-6:30
+Open budget and court-/advocate-/case-/FY
+reports.
+aid expenditure and approved-unpaid
+liability stay separate and reconcile.
+6:30-7:15
+Open case timeline, noti>cations and audit
+history.
+End-to-end traceability and attribution.
+7:15-8:00
+Show one access-denial test and report
+totals against ledger entries.
+Security and arithmetic correctness.
+;ekQsxOO>V>>6s6>G8svI>3A
+y| upg18888Gvpm>gplaeeold0pli0opuolaus0piesproiute>poxoed0pdapisxalidopiddoesielo.phtnnpxout-lidtae.p
+lae-> uihnopi22uaxin0.puolausosp2iSboed0piesph s>odIuo2audte>pxto,0cpwilrphtnnpri0pipduie02iuoedp0did 0piesp
+solt0taeprt0dauScprop0S0dobp0o2iuidonSpki>0p2a00thnops 2ntlidophtnn0piesps 2ntlidop2iSboedpuoduto0.piesptd0puo2aud0p
+st0dte> t0rp2itspok2oestd uop-uabpi22uaxos4 e2itspiba ed0cpropl uuoedp2uadadS2op 0o0p-ldtaeinpuolaus0piesp
+bie inpoeduSApntxopla udpaup-eieloptedo>uidtae0p,a nspuof tuopi22uaxosptedou-ilo0piespillo00cD
+;:ksu>V>svmD,sD,6s6>H,I>I8,s8qs68,>
+u>V>so-
+3>,D.I8
+tJv>3>>6s.>Vxm>
+T-01
+Login as valid, invalid and deactivated user
+Active valid user succeeds; invalid/deactivated
+access is denied.
+T-02
+Advocate changes URL/AI ID to access another
+advocate’s bill/document
+403/404 as designed; no sensitive details leaked.
+T-03
+Create case with missing >elds or duplicate
+internal case ID
+Validation error; no partial record persisted.
+T-04
+Reassign advocate on a case
+Old/new assignment and reason remain in
+history; scope updates correctly.
+T-05
+Add hearing with next date earlier than
+hearing date
+Rejected; no invalid hearing persisted.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+23
+of
+28
+u>V>so-
+3>,D.I8
+tJv>3>>6s.>Vxm>
+T-06
+Mark hearing postponed without reason
+Rejected by validation.
+T-07
+Complete a hearing but leave attendance Not
+Recorded
+System does not infer resent or Absent.
+T-08
+Record same advocate attendance twice for one
+hearing
+Conkict or audited revision kow; no unnoticed
+duplicate row.
+T-09
+Submit bill without required document or
+required appearance link
+Blocked/returned according to con>gured fee-
+category rules.
+T-10
+Submit same invoice reference by same
+advocate
+Candidate duplicate found; match reasons
+shown.
+T-11
+Submit same amount but diWerent valid service
+period/case
+Not auto-rejected on amount alone; rule
+explains whether a candidate is kagged.
+T-12
+Veri>er returns bill without reason
+Rejected by validation.
+T-13
+Claimant attempts to approve own bill via
+direct AI
+Denied server-side.
+T-14
+Approver tries before prior mandatory stage
+completed
+State-transition conkict; no >nal approval
+persisted.
+T-15
+Attempt payment on unapproved/rejected bill
+Denied; totals unchanged.
+T-16
+Submit same payment request twice with same
+idempotency key
+Only one valid payment event is recorded.
+T-17
+Two concurrent payment requests consume
+same remaining balance
+No overpayment; transactional locking/conkict
+controls work.
+T-18
+ost payment above remaining balance
+Rejected transactionally; payment and balance
+do not partially update.
+T-19
+Reverse/adjust a posted payment
+Original entry remains; linked correction
+aWects net totals correctly.
+T-20
+Create budget with allocation zero and
+payment spend
+No divide-by-zero; show N/A utilisation and
+overrun alert.
+T-21
+Change fee/workkow con>guration while bills
+are in kight
+Con>guration change is audited; in-kight rule
+version behaviour is explicit.
+T-22
+Filter court-wise/year-wise and FY report
+Totals rekect >lters and declared date basis;
+drill-down source rows reconcile.
+T-23
+Compare budget dashboard to payment ledger
+and approved-unpaid bills
+All amounts reconcile to the paise with no
+double counting.
+T-24
+Request unauthorised attachment download or
+export
+Denied by backend scope check.
+T-25
+Trigger overdue SLA noti>cation
+Correct owner/supervisor noti>ed in-app; bill
+state remains unchanged.
+T-26
+Cancel hearing and inspect upcoming report
+Cancelled hearing excluded; cancellation and
+previous schedule remain auditable.
+T-27
+Change attendance after linked bill approval
+Old attendance preserved; approved correction
+policy/exception workkow applied.
+T-28
+Reset demo data from clean database
+Seed/reset script reproduces same deterministic
+scenario.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+24
+of
+28
+;:k;sdI,IGxGs,8,Uqx,3>I8,Dms3A>3MV
+Responsive core workkows on laptop and mobile widths; pagination for case/bill lists.
+Readable >eld-level errors; no reliance on colour alone for status.
+No secrets, password hashes or private document paths in AI payloads/logs.
+Database migrations and seeded demo data work from a clean setup; repeatable demo reset.
+A basic performance check on realistic synthetic record counts; avoid loading every case/bill into one response.
+Backup/restore, access reviews, retention and production security standards are documented as pre-production
+work.
+;:kbs->H,I>I8,s8qs68,>
+2>m>DV>sOD>>
+The MV is ready to demonstrate when the end-to-end path works from a clean reset; critical permissions are
+tested through direct AI calls; attendance is explicit; no duplicate payment or overpayment can silently commit;
+reports reconcile to the payment ledger; budget measures are clearly labelled; and all external/manual demo
+boundaries are honest.
+
+
+
+
+
+
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+25
+of
+28
+;EksoGvm>G>,>D>I8,s.8D6GDv
+A modular monolith is su-cient for the prototype. Implement the complete vertical workkow >rst, then >ll out
+reports and polish; do not split into microservices for a hackathon MV.
+lADV>
+oGvm>G>,>D>I8,sL8.M
+tJI>s38,6I>I8,
+1 - Foundation
+Create React/Vite and Spring Boot projects;
+MySQL schema/migrations; auth, roles,
+department scope; sample users.
+All demo roles can sign in; protected
+endpoints and cross-role access denial
+tested.
+2 - Case and hearing
+Case CRUD/search; court and advocate
+masters; assignment history; hearing
+schedule/outcome/date history; calendar.
+Case and hearing appear in a single
+authorised timeline.
+3 - Attendance and bills
+er-hearing attendance,
+veri>cation/evidence; bill submission, fee
+category, documents and duplicate bill
+checks.
+Valid bill can be submitted; attendance and
+document rules are enforced and visible.
+4 - Veri>cation and approval
+Review packet/checklists, return/resubmit,
+con>gurable workkow stages, task inbox,
+SLA age and audit events.
+Bill follows authorised stage sequence;
+invalid transitions blocked.
+5 - ayment and budget
+ayment ledger, idempotency, duplicate
+payment guard, partial payment kag,
+correction/reversal, accounting references
+and budget allocations.
+No overpayment; net paid/unpaid
+calculations reconcile.
+6 - Reports and alerts
+Court/advocate/case/month/calendar-year/
+FY reports; budget dashboard; in-app
+reminders, overdue escalation and export.
+All totals drill to source records and report
+>lters are enforced by access scope.
+7 - Hardening and demo
+Negative tests, clean seed/reset script,
+responsive layout, security checks, demo
+walkthrough and pitch.
+Repeatable eight-minute demo from clean
+reset without manual database edits.
+;Ek;sxOO>V>>6sv.8B>3>sV>.x3>x.>
+4D3M>,6svD3MDO>V
+r.8,>>,6sD.>DV
+auth/ - authentication and Spring Security
+app/ - router, auth provider and protected routes
+users/roles/departments/ - access scoping
+components/ - tables, status badges, dialogs, timelines
+courts/advocates/cases/assignments/ - legal registry
+pages/ - Dashboard, Cases, CaseDetail, Hearings, Attendance
+hearings/attendance/ - schedules and attendance validation
+features/bills/ - submission, review, duplicate warning
+bills/documents/veri>cation/ - claims and evidence
+features/workkow/ - inbox, approval tasks, action timeline
+workkow/approvals/ - stages, tasks, decisions, SLA
+features/payments/ - register, adjustment, balance
+payments/accounting/budgets/ - settlement and budget
+features/reports/ - charts, >lters, CSV/export
+noti>cations/audit/reports/ - alerts, trace, totals
+services/ - AI client, permission-aware requests
+common/ - DTOs, exceptions, validation, transactions
+utils/ - INR/FY/date format and shared form validation
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+26
+of
+28
+;Nks->vD.>G>,>s6>3IVI8,Vs.>/xI.>6sR>q8.>sv.86x3>I8,
+The MV can use visibly labelled demo defaults. These decisions must be answered by the relevant authority
+before real legal/>nancial data or o-cial workkow is used.
+o-
+->3IVI8,sD.>D
+5x>V>I8,s>8s38,H.G
+D-01
+Case identity
+O-cial case number format; mandatory
+court/department >elds; whether duplicate
+checks include court, case type or >ling
+year.
+D-02
+Roles/assignments
+Who may create cases, assign/reassign
+advocates, record hearings and validate
+attendance? Can a user hold multiple roles?
+D-03
+Attendance
+Authoritative attendance source; acceptable
+evidence/reference; who con>rms/corrects
+attendance; how disputed, absent, excused
+or not-recorded states are handled.
+D-04
+Bill initiation
+Can advocates submit directly, or must a bill
+preparer create/submit the bill on their
+behalf?
+D-05
+Billing model
+er appearance, case stage, retainer,
+expenses/travel or combinations; hearing-
+link requirements by category.
+D-06
+Fee rules
+O-cial fee schedule, required documents,
+taxes/deductions if any, eWective dates,
+rounding and who can approve exceptions.
+D-07
+Approval hierarchy
+Exact sequence, authorised roles, monetary
+thresholds, delegation rules, substitute
+approvers, separation-of-duty exceptions.
+D-08
+SLA/escalation
+Due times by stage, business-day calendar,
+holidays, pause rules, return-to-claimant
+time, escalation recipients.
+D-09
+ayment policy
+artial payments permitted? ayment
+modes? What counts as authoritative
+con>rmation? How are failed payments,
+recovery, reversals and refunds treated?
+D-10
+Duplicate rules
+Which bill identi>ers must be unique?
+Which payment references are
+globally/locally unique? Who resolves
+kagged candidates?
+D-11
+Accounting references
+Required voucher/head/reference >elds;
+calendar year or >nancial year rules; source
+of accounting truth and reconciliation
+ownership.
+D-12
+Budget model
+Allocation dimensions (department, budget
+head, court or others); whether unpaid
+approved amounts reserve budget; whether
+submitted claims reserve/forecast budget.
+D-13
+Reporting
+Required report formats, groupings, date
+basis, export types, recipients and access
+restrictions.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+27
+of
+28
+o-
+->3IVI8,sD.>D
+5x>V>I8,s>8s38,H.G
+D-14
+Integration
+Availability of approved court AIs,
+treasury/IFMS/payment interfaces, test
+credentials, data-sharing agreements and
+support owners.
+D-15
+Security/records
+Data classi>cation, hosting/allowed storage,
+retention/archive, legal hold, backup, access
+review, audit retention and accessibility
+standards.
+D-16
+Amendment/cancellation
+Rules for bill
+withdrawal/cancellation/amendment after
+veri>cation/approval; impact on budget and
+payment history.
+S8sGD6>Uxvsv8mI3+
+Where these answers are missing, keep con>guration explicit and demo labels visible. Do not hard-code a sample
+>ve-day SLA, sample fee rates, approval limit or an integration status as though it were an o-cial rule.
+hvv>,6IJshks>D>xVs6I3>I8,D.+
+t,>I>+
+xOO>V>>6sV>D>xV>V
+d>D,I,Os0sAD,6mI,O
+Case
+OEN, ACTIVE, ON_HOLD, CLOSED /
+DISOSED
+Exact lifecycle meanings must be con>rmed;
+closed/disposed cases may retain hearings
+and payment history.
+Hearing
+SCHEDULED, COMLETED, ADJOURNED,
+CANCELLED
+Outcome/status of the hearing event;
+cancelled records remain in history.
+Attendance
+RESENT, ABSENT, NOT_RECORDED;
+optional EXCUSED/OTHER only if approved
+resence of each advocate at each hearing.
+Not Recorded is not Absence. Status history
+retained.
+Bill workkow
+DRAFT, SUBMITTED,
+ENDING_VERIFICATION, RETURNED,
+VERIFIED, ENDING_AROVAL,
+AROVED, REJECTED, WITHDRAWN
+Approval workkow lifecycle; exact stage
+labels are con>gurable.
+Settlement (derived)
+UNAID, ARTIALLY_AID, AID
+Derived from approved payable amount and
+valid net payment entries; distinct from bill
+workkow status.
+ayment entry
+RECORDED, REVERSED, ADJUSTED
+Ledger history item; corrections retain
+original payment and link adjustment.
+Duplicate review
+NOT_CHECKED, CANDIDATE_FOUND,
+UNDER_REVIEW, CLEARED,
+CONFIRMED_DULICATE
+Human disposition; candidate alone is not a
+fraud determination.
+Veri>cation check
+NOT_STARTED, ASS, FAIL,
+EXCETION_AROVED
+Checklist outcome; exception records reason
+and authorised actor.
+Budget status
+WITHIN_LIMIT, THRESHOLD_WARNING,
+OVER_ALLOCATED
+Derived from con>gured budget basis; show
+actual numbers and basis.
+Noti>cation
+UNREAD, READ, DISMISSED; delivery
+attempt states are separate
+A read state is not the same as provider
+delivery or acknowledgement.
+ropssassl    bessassdnlsltporophuoiS
+roposal based on the supplied S000024 brief - not o-cial policy     |     age
+28
+of
+28
+hvv>,6IJs4ksdI,IGxGsH,Dms6>G8s3A>3MmIV>
+Case is created and advocate assignment is recorded with history.
+Hearing appears on the calendar, has an outcome/next date, and a reschedule is auditable.
+Each relevant advocate has a distinct attendance record; Not Recorded and Absent are not conkated.
+Bill is linked to case, and hearing/attendance evidence is checked when fee rule requires it.
+otential duplicate bill warning shows exact matched attributes and human disposition.
+Return/resubmission and every approval stage show owner, time, reason and history.
+Self-approval and out-of-order approval are blocked through direct AI as well as UI.
+ayment is recorded only after approval; duplicate retry/overpayment are blocked; correction/reversal retains
+history.
+Budget dashboard displays allocation, actual paid, approved-unpaid and unapproved exposure separately.
+Court-wise, advocate-wise, case-wise, calendar-year and >nancial-year reports reconcile to ledger records.
+In-app hearing/stage noti>cations show recipient/read state; no fake external delivery claim is made.
+Audit timeline and department/role access restrictions are demonstrated.
+Demo data/rates/approval rules are labelled synthetic; open decisions are stated transparently.
+Vteinpeadop4prt0pxGphn o2utedpbi3o0pdropg18888Gvp2uadadS2opbauoplab2nodopiespdo0dihnoAptdpt0peadpiploudt-lidtaepa-paOltinplab2ntielocp6o-auop
+2uas ldtaep 0o.pdropLo>inp/o2iudboedpb 0dplae-ubph 0teo00pu no0.p-eieltinplaeduan0.pi drautdSprtouiulrS.puolaus0I2utxilSp2antlS.pra0dte>piesp
+i draut0osptedo>uidtae0c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

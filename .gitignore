@@ -41,6 +41,20 @@ hibernate.log
 backend/uploads/
 uploads/
 
+
+# Spring Boot configuration containing local credentials
+/backend/src/main/resources/application.properties
+/backend/src/main/resources/application-h2.properties
+
+# Optional: local, development and production configs
+/backend/src/main/resources/application-local.properties
+/backend/src/main/resources/application-dev.properties
+/backend/src/main/resources/application-prod.properties
+/backend/src/main/resources/application-secret*.properties
+
+# Safe example configuration can be committed
+!/backend/src/main/resources/application.example.properties
+
 # =====================================================
 # FRONTEND: React + Vite
 # =====================================================
